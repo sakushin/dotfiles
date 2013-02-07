@@ -23,9 +23,25 @@ PROMPT="%n@%m:%~%(!.#.$) "
 PROMPT2="_> "
 SPROMPT="correct: %R -> %r [nyae]? "
 
+# rvm
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # Load RVM function
 
-#alias
+# phpenv
+if [ -s "$HOME/.phpenv/bin/phpenv" ]; then
+  export PATH="$HOME/.phpenv/bin:$PATH"
+  eval "$(phpenv init -)"
+fi
+
+# tmux command alert
+if [ -n $TMUX ]; then
+  function _tmux_alert(){
+    echo -n "\a"
+  }
+  autoload -U add-zsh-hook
+  add-zsh-hook precmd _tmux_alert
+fi
+
+# alias
 alias ls='ls --color'
 alias ll='ls --color -l'
 alias bruby='bundle exec ruby'
