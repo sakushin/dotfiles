@@ -1,3 +1,9 @@
+filetype off
+filetype plugin indent off
+
+" markdown preview
+NeoBundle 'mattn/mkdpreview-vim'
+
 set guifont=Consolas:h10:cSHIFTJIS
 colorscheme molokai
 
@@ -10,8 +16,6 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 
 " tab
 set showtabline=2
-autocmd VimEnter * tab all
-autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
 
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
@@ -69,3 +73,5 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
+
+filetype plugin indent on
