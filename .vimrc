@@ -20,6 +20,11 @@ NeoBundleLazy 'taichouchou2/rsense-0.3', {'build': {'mac': 'ruby etc/config.rb >
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby', 'eruby', 'haml']}}
 " md
 NeoBundle 'Markdown'
+NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
+NeoBundleLazy 'mattn/webapi-vim', {'autoload': {'filetypes': 'markdown'}}
+NeoBundleLazy 'mattn/mkdpreview-vim', {'autoload': {'filetypes': 'markdown'}}
+" powerline
+NeoBundle 'Lokaltog/vim-powerline'
 
 " other settings
 set ruler

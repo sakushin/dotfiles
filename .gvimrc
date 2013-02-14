@@ -1,18 +1,16 @@
 filetype off
 filetype plugin indent off
 
-" markdown preview
-NeoBundle 'mattn/mkdpreview-vim'
-
 set guifont=Consolas:h10:cSHIFTJIS
 colorscheme molokai
 
 set nobackup
 set noswapfile
+" 無名バッファ <=> OSクリップボード
 set clipboard=unnamed
 
 " encoding line
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+" set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 " tab
 set showtabline=2
