@@ -25,6 +25,8 @@ NeoBundleLazy 'mattn/webapi-vim', {'autoload': {'filetypes': 'markdown'}}
 NeoBundleLazy 'mattn/mkdpreview-vim', {'autoload': {'filetypes': 'markdown'}}
 " powerline
 NeoBundle 'Lokaltog/vim-powerline'
+" colorscheme
+NeoBundle 'tomasr/molokai'
 
 " other settings
 set ruler
@@ -52,6 +54,13 @@ let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 imap <NUL> <C-Space>
 inoremap <C-space> <C-x><C-o>
+
+" color
+set t_Co=256
+colorscheme molokai
+
+" powerline settings
+set laststatus=2
 
 " after
 filetype plugin indent on
