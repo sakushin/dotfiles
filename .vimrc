@@ -36,6 +36,7 @@ set shiftwidth=2
 set expandtab
 " wrap
 set whichwrap=b,s,h,l,<,>,[,],~
+set nowrap
 " search
 set hlsearch
 set ignorecase

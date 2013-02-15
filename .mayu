@@ -1,6 +1,6 @@
 include "109.mayu" # 109 キーボード設定
 keymap Global
-def option KeyboardDelay = enable 200 15
+def option KeyboardDelay = disable 200 15
 
 #拡張モディファイア(One Shot)
 mod mod1 = !!無変換
