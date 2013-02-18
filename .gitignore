@@ -1,0 +1,19 @@
+# my scripts
+/my/
+
+# maven
+target/
+.repository
+
+# idea
+.idea/
+*.iml
+
+# eclipse
+.settings
+.project
+.buildpath
+.classpath
+
+# other
+.svn
