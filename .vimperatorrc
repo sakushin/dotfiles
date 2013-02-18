@@ -1,0 +1,28 @@
+set titlestring=Firefox
+
+set visualbell
+set focuscontent
+set complete=l
+
+" search
+set hlsearch
+set ignorecase
+set smartcase
+nnoremap <silent> <Esc><Esc> :nohl<CR>
+
+" window
+nnoremap j 5<C-e>
+nnoremap k 5<C-y>
+nnoremap <BS> H
+nnoremap Y y
+nnoremap y Y
+nnoremap q d
+
+" tab
+nnoremap <S-k> <C-p>
+nnoremap <S-j> <C-n>
+nnoremap <C-h> :tabmove! -1<CR>
+nnoremap <C-l> :tabmove! +1<CR>
+
+
+let g:hintsio="ii"
