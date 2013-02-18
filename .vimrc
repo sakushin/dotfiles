@@ -23,6 +23,8 @@ NeoBundle 'Markdown'
 NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
 NeoBundleLazy 'mattn/webapi-vim', {'autoload': {'filetypes': 'markdown'}}
 NeoBundleLazy 'mattn/mkdpreview-vim', {'autoload': {'filetypes': 'markdown'}}
+" quickrun
+NeoBundle 'thinca/vim-quickrun' 
 " powerline
 NeoBundle 'Lokaltog/vim-powerline'
 " colorscheme
@@ -42,11 +44,24 @@ set hlsearch
 set ignorecase
 set smartcase
 set wrapscan
-nnoremap <silent> <Esc><Esc> :nohl<Return>
+nnoremap <silent> <Esc><Esc> :nohl<CR>
 " format
 set fileformats=unix,dos,mac
 " useful regexp
 nnoremap / /\v
+
+" tab
+nnoremap <C-h> gT
+nnoremap <C-l> gt
+" window
+nnoremap <S-j> <C-w>j
+nnoremap <S-k> <C-w>k
+nnoremap <S-l> <C-w>l
+nnoremap <S-h> <C-w>h
+nnoremap <silent> <C-w><C-j> :res +5<CR>
+nnoremap <silent> <C-w><C-k> :res -5<CR>
+nnoremap <silent> <C-w><C-l> :vertical res +5<CR>
+nnoremap <silent> <C-w><C-h> :vertical res -5<CR>
 
 " neocomplecache
 let g:neocomplcache_enable_smart_case = 1
