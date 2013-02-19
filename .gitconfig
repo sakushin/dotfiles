@@ -3,7 +3,7 @@
 [core]
   pager = less -R
   excludesfile = ~/.gitignore
-  autocrlf = false
+  autocrlf = input
 [user]
 	name = sakushin
   email = sakushin20xx@gmail.com
@@ -25,7 +25,7 @@
   cia = commit -a
   civ = commit -v
   ciav = commit -av
-  cic = commit -c ORIG_HEAD # re-commit to fix after soft reset
+  cirs = commit -av -c ORIG_HEAD # re-commit to fix after soft reset
   # checkout
   co = checkout
   cob = checkout -b
