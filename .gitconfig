@@ -14,12 +14,19 @@
 [http]
   postBuffer = 524288000
 [alias]
+  sh = show
   # status
   s = status
   st = status
+  # add
+  a = add
+  ad = add
   # log
-  log = log --graph
+  l = log
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  # show-branch
+  shbr = show-branch --sha1-name
+  showbr = show-branch --sha1-name
   # commit
   ci = commit
   cia = commit -a
@@ -34,6 +41,7 @@
   brr = branch -r
   # rebase
   rb = rebase
+  rbi = rebase -i
   rbi2 = rebase -i HEAD~2
   rbi3 = rebase -i HEAD~3
   rbi4 = rebase -i HEAD~4
@@ -43,6 +51,8 @@
   # reset
   rs = reset
   rs2 = reset --soft HEAD^
+  #rsh = reset --hard HEAD
+  #rsh2 = reset --hard HEAD^
   # stash
   sta = stash
   stap = stash pop

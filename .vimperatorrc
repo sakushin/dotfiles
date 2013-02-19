@@ -21,8 +21,8 @@ nnoremap q d
 " tab
 nnoremap <S-k> <C-p>
 nnoremap <S-j> <C-n>
-nnoremap <C-h> :tabmove! -1<CR>
-nnoremap <C-l> :tabmove! +1<CR>
+nnoremap <C-k> :tabmove! -1<CR>
+nnoremap <C-j> :tabmove! +1<CR>
 
 " hint
 let g:hintsio="ii"

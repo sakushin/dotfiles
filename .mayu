@@ -44,13 +44,16 @@ key M1-*_9 = *F9
 key M1-*_0 = *F10
 
 #M2 ‰Eew
-key M2-*H = *_0
-key M2-*J = *_1
-key M2-*K = *_2
-key M2-*L = *_3
-key M2-*U = *_4
-key M2-*I = *_5
-key M2-*O = *_6
+key M2-*Semicolon = *_0
+key M2-*A = *_1
+key M2-*S = *_2
+key M2-*D = *_3
+key M2-*F = *_4
+key M2-*G = *_5
+key M2-*H = *_6
+key M2-*J = *_7
+key M2-*K = *_8
+key M2-*L = *_9
 
 #M1-M2 “¯‰Ÿ‚µ
 key M1-M2-*H = Home
