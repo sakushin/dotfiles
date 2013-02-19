@@ -1,3 +1,5 @@
+[include]
+  path = ~/.gitconfig.local
 [core]
   pager = less -R
   excludesfile = ~/.gitignore

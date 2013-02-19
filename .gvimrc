@@ -14,6 +14,8 @@ set clipboard=unnamed
 
 " tab
 set showtabline=2
+" ビープの抑制
+set visualbell t_vb=
 
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
