@@ -26,3 +26,4 @@ nnoremap <C-l> :tabmove! +1<CR>
 
 
 let g:hintsio="ii"
+:style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
