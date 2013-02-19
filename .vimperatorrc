@@ -24,6 +24,7 @@ nnoremap <S-j> <C-n>
 nnoremap <C-h> :tabmove! -1<CR>
 nnoremap <C-l> :tabmove! +1<CR>
 
-
+" hint
 let g:hintsio="ii"
+set hintchars=ifjklasdhguonmerwc
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
