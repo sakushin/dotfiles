@@ -9,6 +9,10 @@ set noswapfile
 " 無名バッファ <=> OSクリップボード
 set clipboard=unnamed
 
+" サイズ
+set lines=99999
+set columns=99999
+
 " encoding line
 " set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
