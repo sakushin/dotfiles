@@ -5,19 +5,21 @@ set guifont=Consolas:h9:cSHIFTJIS
 colorscheme molokai
 
 set nobackup
-set noswapfile
+"set noswapfile
 " 無名バッファ <=> OSクリップボード
 set clipboard=unnamed
 
+set guioptions=rbL
+
 " サイズ
-set lines=99999
-set columns=99999
+set lines=48
+set columns=128
 
 " encoding line
 " set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 " tab
-set showtabline=2
+"set showtabline=2
 " ビープの抑制
 set visualbell t_vb=
 

@@ -48,3 +48,6 @@ alias bruby='bundle exec ruby'
 alias tmux='tmux -2'
 
 export PATH=$HOME/bin:$PATH
+
+# local settings
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
