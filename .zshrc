@@ -23,17 +23,7 @@ PROMPT="%n@%m:%~%(!.#.$) "
 PROMPT2="_> "
 SPROMPT="correct: %R -> %r [nyae]? "
 
-# rvm
-[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # Load RVM function
-
-# phpenv
-if [ -s "$HOME/.phpenv/bin/phpenv" ]; then
-  export PATH="$HOME/.phpenv/bin:$PATH"
-  eval "$(phpenv init -)"
-fi
-
-# tmux command alert
-if [ -n $TMUX ]; then
+if [ -n "$TMUX" ]; then
   function _tmux_alert(){
     echo -n "\a"
   }
