@@ -16,4 +16,6 @@ target/
 .classpath
 
 # other
-.svn
+.svn/
+*.swp
+*~
