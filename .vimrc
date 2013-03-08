@@ -103,3 +103,8 @@ set laststatus=2
 " after
 filetype plugin indent on
 NeoBundleCheck
+
+" local settings (if exists)
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif

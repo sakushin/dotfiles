@@ -81,3 +81,8 @@ if exists('&ambiwidth')
 endif
 
 filetype plugin indent on
+
+" local settings (if exists)
+if filereadable(expand('~/.gvimrc.local'))
+  source ~/.gvimrc.local
+endif

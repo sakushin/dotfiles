@@ -23,6 +23,7 @@ PROMPT="%n@%m:%~%(!.#.$) "
 PROMPT2="_> "
 SPROMPT="correct: %R -> %r [nyae]? "
 
+# tmux alert
 if [ -n "$TMUX" ]; then
   function _tmux_alert(){
     echo -n "\a"
