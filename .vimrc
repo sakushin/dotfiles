@@ -10,8 +10,10 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak'}}
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimfiler'
 NeoBundleLazy 'Shougo/neocomplcache', {'autoload': {'insert': 1}}
-"NeoBundle 'Shougo/neocomplcache'
 NeoBundleLazy 'Shougo/neosnippet', {'autoload': {'insert': 1}}
 " ruby
 NeoBundleLazy 'taichouchou2/vim-endwise', {'autoload': {'insert': 1}}
@@ -25,6 +27,8 @@ NeoBundleLazy 'mattn/webapi-vim', {'autoload': {'filetypes': 'markdown'}}
 NeoBundleLazy 'mattn/mkdpreview-vim', {'autoload': {'filetypes': 'markdown'}}
 " quickrun
 NeoBundle 'thinca/vim-quickrun' 
+" project.vim
+NeoBundle 'project.tar.gz'
 " powerline
 NeoBundle 'Lokaltog/vim-powerline'
 " colorscheme
@@ -53,7 +57,6 @@ nnoremap / /\v
 set wildmenu
 set wildmode=longest,list,full
 set history=10000
-
 " tab
 nnoremap <S-h> gT
 nnoremap <S-l> gt
@@ -69,6 +72,7 @@ nnoremap <silent> <C-w><C-j> :res +5<CR>
 nnoremap <silent> <C-w><C-k> :res -5<CR>
 nnoremap <silent> <C-w><C-l> :vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :vertical res -5<CR>
+"""""""""""" unite
 
 """""""""""" neocomplecache
 let g:neocomplcache_enable_at_startup = 1
