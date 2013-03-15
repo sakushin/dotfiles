@@ -33,6 +33,8 @@ NeoBundle 'project.tar.gz'
 NeoBundle 'Lokaltog/vim-powerline'
 " colorscheme
 NeoBundle 'tomasr/molokai'
+" outline
+NeoBundle 'h1mesuke/unite-outline'
 
 " other settings
 set ruler
@@ -73,7 +75,13 @@ nnoremap <silent> <C-w><C-k> :res -5<CR>
 nnoremap <silent> <C-w><C-l> :vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :vertical res -5<CR>
 """""""""""" unite
-
+let g:unite_enable_split_vertically = 1
+nnoremap <silent> ,ub :Unite buffer<CR>
+nnoremap <silent> ,uf :UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :Unite -buffer-name=register register<CR>
+nnoremap <silent> ,um :Unite file_mru<CR>
+nnoremap <silent> ,uu :Unite buffer file_mru<CR>
+nnoremap <silent> ,ua :UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 """""""""""" neocomplecache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_disable_auto_complete = 1
