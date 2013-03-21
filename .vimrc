@@ -42,6 +42,7 @@ syntax on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set autochdir
 " wrap
 set whichwrap=b,s,h,l,<,>,[,],~
 set nowrap
@@ -82,6 +83,8 @@ nnoremap <silent> ,ur :Unite -buffer-name=register register<CR>
 nnoremap <silent> ,um :Unite file_mru<CR>
 nnoremap <silent> ,uu :Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+"""""""""""" vimfiler
+nnoremap <silent> <leader>f :VimFiler -toggle -split -no-quit -winwidth=35 -simple<CR> 
 """""""""""" neocomplecache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_disable_auto_complete = 1
