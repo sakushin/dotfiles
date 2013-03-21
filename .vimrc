@@ -54,6 +54,8 @@ set wrapscan
 nnoremap <silent> <Esc><Esc> :nohl<CR>
 " format
 set fileformats=unix,dos,mac
+" remap leader
+let mapleader = ","
 " useful regexp
 nnoremap / /\v
 " commandline
@@ -77,14 +79,16 @@ nnoremap <silent> <C-w><C-l> :vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :vertical res -5<CR>
 """""""""""" unite
 let g:unite_enable_split_vertically = 1
-nnoremap <silent> ,ub :Unite buffer<CR>
-nnoremap <silent> ,uf :UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,ur :Unite -buffer-name=register register<CR>
-nnoremap <silent> ,um :Unite file_mru<CR>
-nnoremap <silent> ,uu :Unite buffer file_mru<CR>
-nnoremap <silent> ,ua :UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+let g:unite_winwidth = 35
+nnoremap <silent> <Leader>ub :Unite buffer<CR>
+nnoremap <silent> <Leader>uf :UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <Leader>ur :Unite -buffer-name=register register<CR>
+nnoremap <silent> <Leader>um :Unite file_mru<CR>
+nnoremap <silent> <Leader>uu :Unite buffer file_mru<CR>
+nnoremap <silent> <Leader>ua :UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 """""""""""" vimfiler
-nnoremap <silent> <leader>f :VimFiler -toggle -split -no-quit -winwidth=35 -simple<CR> 
+let g:vimfiler_edit_action = "persist_open"
+nnoremap <silent> <Leader>f :VimFiler -toggle -split -simple -winwidth=35<CR> 
 """""""""""" neocomplecache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_disable_auto_complete = 1
