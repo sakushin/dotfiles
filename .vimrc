@@ -28,7 +28,7 @@ NeoBundleLazy 'mattn/mkdpreview-vim', {'autoload': {'filetypes': 'markdown'}}
 " quickrun
 NeoBundle 'thinca/vim-quickrun' 
 " project.vim
-NeoBundle 'project.tar.gz'
+" NeoBundle 'project.tar.gz'
 " powerline
 NeoBundle 'Lokaltog/vim-powerline'
 " colorscheme
@@ -55,7 +55,7 @@ nnoremap <silent> <Esc><Esc> :nohl<CR>
 " format
 set fileformats=unix,dos,mac
 " remap leader
-let mapleader = ","
+let mapleader = " "
 " useful regexp
 nnoremap / /\v
 " commandline
@@ -78,17 +78,19 @@ nnoremap <silent> <C-w><C-k> :res -5<CR>
 nnoremap <silent> <C-w><C-l> :vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :vertical res -5<CR>
 """""""""""" unite
-let g:unite_enable_split_vertically = 1
-let g:unite_winwidth = 35
+let g:unite_enable_start_insert = 1
+"let g:unite_enable_split_vertically = 1
+"let g:unite_winwidth = 35
 nnoremap <silent> <Leader>ub :Unite buffer<CR>
-nnoremap <silent> <Leader>uf :UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <Leader>uf :UniteWithBufferDir -buffer-name=files file file_mru file/new<CR>
 nnoremap <silent> <Leader>ur :Unite -buffer-name=register register<CR>
 nnoremap <silent> <Leader>um :Unite file_mru<CR>
-nnoremap <silent> <Leader>uu :Unite buffer file_mru<CR>
 nnoremap <silent> <Leader>ua :UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+" project open
+nnoremap <silent> <Leader>up :Unite file_rec:!<CR>
 """""""""""" vimfiler
-let g:vimfiler_edit_action = "persist_open"
-nnoremap <silent> <Leader>f :VimFiler -toggle -split -simple -winwidth=35<CR> 
+"let g:vimfiler_edit_action = "persist_open"
+"nnoremap <silent> <Leader>f :VimFiler -toggle -split -simple -winwidth=35<CR> 
 """""""""""" neocomplecache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_disable_auto_complete = 1
