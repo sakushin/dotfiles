@@ -1,7 +1,7 @@
 filetype off
 filetype plugin indent off
 
-set guifont=Consolas:h9:cSHIFTJIS
+set guifont=Consolas:h8:cSHIFTJIS
 colorscheme molokai
 
 set nobackup

@@ -51,13 +51,13 @@ set hlsearch
 set ignorecase
 set smartcase
 set wrapscan
-nnoremap <silent> <Esc><Esc> :nohl<CR>
+nnoremap <silent> <Esc><Esc> :<C-u>nohl<CR>
 " format
 set fileformats=unix,dos,mac
 " remap leader
 let mapleader = " "
 " useful regexp
-nnoremap / /\v
+"nnoremap / /\v
 " commandline
 set wildmenu
 set wildmode=longest,list,full
@@ -65,7 +65,7 @@ set history=10000
 " tab
 nnoremap <S-h> gT
 nnoremap <S-l> gt
-nnoremap t :tabnew<Space>
+nnoremap t :<C-u>tabnew<Space>
 " window
 set splitright
 set splitbelow
@@ -73,24 +73,24 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
-nnoremap <silent> <C-w><C-j> :res +5<CR>
-nnoremap <silent> <C-w><C-k> :res -5<CR>
-nnoremap <silent> <C-w><C-l> :vertical res +5<CR>
-nnoremap <silent> <C-w><C-h> :vertical res -5<CR>
+nnoremap <silent> <C-w><C-j> :<C-u>res +5<CR>
+nnoremap <silent> <C-w><C-k> :<C-u>res -5<CR>
+nnoremap <silent> <C-w><C-l> :<C-u>vertical res +5<CR>
+nnoremap <silent> <C-w><C-h> :<C-u>vertical res -5<CR>
 """""""""""" unite
 let g:unite_enable_start_insert = 1
 "let g:unite_enable_split_vertically = 1
 "let g:unite_winwidth = 35
-nnoremap <silent> <Leader>ub :Unite buffer<CR>
-nnoremap <silent> <Leader>uf :UniteWithBufferDir -buffer-name=files file file_mru file/new<CR>
-nnoremap <silent> <Leader>ur :Unite -buffer-name=register register<CR>
-nnoremap <silent> <Leader>um :Unite file_mru<CR>
-nnoremap <silent> <Leader>ua :UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
+nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file file_mru file/new<CR>
+nnoremap <silent> <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
+nnoremap <silent> <Leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " project open
-nnoremap <silent> <Leader>up :Unite file_rec:!<CR>
+nnoremap <silent> <Leader>up :<C-u>Unite file_rec:!<CR>
 """""""""""" vimfiler
 "let g:vimfiler_edit_action = "persist_open"
-"nnoremap <silent> <Leader>f :VimFiler -toggle -split -simple -winwidth=35<CR> 
+"nnoremap <silent> <Leader>f :<C-u>VimFiler -toggle -split -simple -winwidth=35<CR> 
 """""""""""" neocomplecache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_disable_auto_complete = 1

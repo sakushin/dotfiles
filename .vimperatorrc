@@ -30,6 +30,6 @@ set hintchars=ifjklasdhguonmerwc
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
 " hatebu
-javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
-set complete+=H
+"javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
+"set complete+=H
 
