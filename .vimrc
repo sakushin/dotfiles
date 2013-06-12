@@ -24,7 +24,9 @@ NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby', 'eruby', 
 NeoBundle 'Markdown'
 NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
 NeoBundleLazy 'mattn/webapi-vim', {'autoload': {'filetypes': 'markdown'}}
-NeoBundleLazy 'mattn/mkdpreview-vim', {'autoload': {'filetypes': 'markdown'}}
+"NeoBundleLazy 'mattn/mkdpreview-vim', {'autoload': {'filetypes': 'markdown'}}
+NeoBundleLazy 'kannokanno/previm', {'autoload': {'filetypes': 'markdown'}}
+
 " quickrun
 NeoBundle 'thinca/vim-quickrun' 
 " project.vim
@@ -42,7 +44,7 @@ syntax on
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set autochdir
+" set autochdir
 " wrap
 set whichwrap=b,s,h,l,<,>,[,],~
 set nowrap
@@ -77,6 +79,12 @@ nnoremap <silent> <C-w><C-j> :<C-u>res +5<CR>
 nnoremap <silent> <C-w><C-k> :<C-u>res -5<CR>
 nnoremap <silent> <C-w><C-l> :<C-u>vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :<C-u>vertical res -5<CR>
+"""""""""""" previm
+if has('win32') || has('win64')
+  let g:previm_open_cmd = 'rundll32 url.dll,FileProtocolHandler'
+elseif has('mac')
+  let g:previm_open_cmd = 'open'
+endif
 """""""""""" unite
 let g:unite_enable_start_insert = 1
 "let g:unite_enable_split_vertically = 1
@@ -86,8 +94,11 @@ nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file fi
 nnoremap <silent> <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
 nnoremap <silent> <Leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> <Leader>uo :<C-u>Unite -no-start-insert -vertical -no-quit -winwidth=35 outline<CR>
 " project open
 nnoremap <silent> <Leader>up :<C-u>Unite file_rec:!<CR>
+" samba越しのファイルは提示対象外(逐次存在確認しているようで非常に重い) for Windows
+call unite#custom_source('file_mru', 'ignore_pattern', '^//')
 """""""""""" vimfiler
 "let g:vimfiler_edit_action = "persist_open"
 "nnoremap <silent> <Leader>f :<C-u>VimFiler -toggle -split -simple -winwidth=35<CR> 
@@ -99,6 +110,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 "let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_min_syntax_length = 3
+" PuTTYのNULコード送信キーと衝突
 imap <NUL> <C-Space>
 " SEGV...
 "inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
