@@ -100,8 +100,8 @@ nnoremap <silent> <Leader>up :<C-u>Unite file_rec:!<CR>
 " samba越しのファイルは提示対象外(逐次存在確認しているようで非常に重い) for Windows
 call unite#custom_source('file_mru', 'ignore_pattern', '^//')
 """""""""""" vimfiler
-"let g:vimfiler_edit_action = "persist_open"
-"nnoremap <silent> <Leader>f :<C-u>VimFiler -toggle -split -simple -winwidth=35<CR> 
+let g:vimfiler_edit_action = "persist_open"
+nnoremap <silent> <Leader>vf :<C-u>VimFiler -explorer -no-quit -toggle -split -simple -winwidth=35<CR> 
 """""""""""" neocomplecache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_disable_auto_complete = 1
@@ -122,8 +122,6 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
-
-
 inoremap <expr> <C-e> neocomplcache#cancel_popup()
 
 " color
