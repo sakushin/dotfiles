@@ -19,9 +19,10 @@ NeoBundleLazy 'Shougo/neocomplcache', {'autoload': {'insert': 1}}
 NeoBundleLazy 'Shougo/neosnippet', {'autoload': {'insert': 1}}
 " ruby
 NeoBundleLazy 'taichouchou2/vim-endwise', {'autoload': {'insert': 1}}
-"NeoBundle 'Shougo/neocomplcache-rsense', {'depends': 'Shougo/neocomplcache', 'autoload': {'filetypes': 'ruby'}}
-"NeoBundleLazy 'taichouchou2/rsense-0.3', {'build': {'mac': 'ruby etc/config.rb > ~/.rsense', 'unix': 'ruby etc/config.rb > ~/.rsense'}}
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby', 'eruby', 'haml']}}
+"NeoBundleLazy 'taichouchou2/rsense-0.3', {'build': {'mac': 'ruby etc/config.rb > ~/.rsense', 'unix': 'ruby etc/config.rb > ~/.rsense'}}
+NeoBundleLazy 'marcus/rsense', {'autoload': {'filetypes': ['ruby', 'eruby', 'haml']}}
+NeoBundle 'Shougo/neocomplcache-rsense', {'depends': ['Shougo/neocomplcache', 'marcus/rsense']}
 " md
 NeoBundle 'Markdown'
 NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
@@ -81,6 +82,26 @@ nnoremap <silent> <C-w><C-j> :<C-u>res +5<CR>
 nnoremap <silent> <C-w><C-k> :<C-u>res -5<CR>
 nnoremap <silent> <C-w><C-l> :<C-u>vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :<C-u>vertical res -5<CR>
+"enclose
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi{<C-R>z}<ESC>
+vnoremap [ "zdi[<C-R>z]<ESC>
+vnoremap ( "zdi(<C-R>z)<ESC>
+vnoremap " "zdi"<C-R>z"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
+"""""""""""" quickrun
+let g:quickrun_config = {
+\  "_" : {
+\    "runner" : "vimproc",
+\    "runner/vimproc/updatetime" : 60
+\  }
+\}
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+nnoremap <silent> <Leader>r :<C-u>QuickRun<CR>
 """""""""""" previm
 if has('win32') || has('win64')
   let g:previm_open_cmd = 'rundll32 url.dll,FileProtocolHandler'
@@ -104,6 +125,8 @@ call unite#custom_source('file_mru', 'ignore_pattern', '^//')
 """""""""""" vimfiler
 let g:vimfiler_edit_action = "persist_open"
 nnoremap <silent> <Leader>vf :<C-u>VimFiler -explorer -no-quit -toggle -split -simple -winwidth=35<CR> 
+"""""""""""" rsense
+let g:rsenseUseOmniFunc = 1
 """""""""""" neocomplecache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_disable_auto_complete = 1
