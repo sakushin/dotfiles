@@ -5,6 +5,9 @@ filetype plugin indent off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+function! s:can_use_neocomplete()
+  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+endfunction
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -15,14 +18,24 @@ NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak', 'unix': 'm
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
-NeoBundleLazy 'Shougo/neocomplcache', {'autoload': {'insert': 1}}
+if s:can_use_neocomplete()
+  NeoBundleLazy 'Shougo/neocomplete', {'autoload': {'insert': 1}}
+  NeoBundle 'supermomonga/neocomplete-rsense.vim', {'depends': ['Shougo/neocomplete', 'marcus/rsense']}
+  NeoBundleFetch 'Shougo/neocomplcache'
+  NeoBundleFetch 'Shougo/neocomplcache-rsense'
+else
+  NeoBundleLazy 'Shougo/neocomplcache', {'autoload': {'insert': 1}}
+  NeoBundle 'Shougo/neocomplcache-rsense', {'depends': ['Shougo/neocomplcache', 'marcus/rsense']}
+  NeoBundleFetch 'Shougo/neocomplete'
+  NeoBundleFetch 'supermomonga/neocomplete-rsense.vim'
+endif
 NeoBundleLazy 'Shougo/neosnippet', {'autoload': {'insert': 1}}
+NeoBundleLazy 'Shougo/neosnippet-snippets', {'autoload': {'insert': 1}}
 " ruby
 NeoBundleLazy 'taichouchou2/vim-endwise', {'autoload': {'insert': 1}}
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby', 'eruby', 'haml']}}
 "NeoBundleLazy 'taichouchou2/rsense-0.3', {'build': {'mac': 'ruby etc/config.rb > ~/.rsense', 'unix': 'ruby etc/config.rb > ~/.rsense'}}
 NeoBundleLazy 'marcus/rsense', {'autoload': {'filetypes': ['ruby', 'eruby', 'haml']}}
-NeoBundle 'Shougo/neocomplcache-rsense', {'depends': ['Shougo/neocomplcache', 'marcus/rsense']}
 " md
 NeoBundle 'Markdown'
 NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
@@ -82,24 +95,17 @@ nnoremap <silent> <C-w><C-j> :<C-u>res +5<CR>
 nnoremap <silent> <C-w><C-k> :<C-u>res -5<CR>
 nnoremap <silent> <C-w><C-l> :<C-u>vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :<C-u>vertical res -5<CR>
-"enclose
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-vnoremap { "zdi{<C-R>z}<ESC>
-vnoremap [ "zdi[<C-R>z]<ESC>
-vnoremap ( "zdi(<C-R>z)<ESC>
-vnoremap " "zdi"<C-R>z"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
 """""""""""" quickrun
 let g:quickrun_config = {
-\  "_" : {
-\    "runner" : "vimproc",
-\    "runner/vimproc/updatetime" : 60
+\  'cpp': {
+\    'command': 'g++',
+\    'cmdopt': '-std=c++11'
 \  }
 \}
+"  '_': {
+"    'runner': 'vimproc',
+"    'runner/vimproc/updatetime': 10
+"  },
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 nnoremap <silent> <Leader>r :<C-u>QuickRun<CR>
 """""""""""" previm
@@ -127,28 +133,67 @@ let g:vimfiler_edit_action = "persist_open"
 nnoremap <silent> <Leader>vf :<C-u>VimFiler -explorer -no-quit -toggle -split -simple -winwidth=35<CR> 
 """""""""""" rsense
 let g:rsenseUseOmniFunc = 1
-"""""""""""" neocomplecache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_disable_auto_complete = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_min_syntax_length = 3
-" PuTTYのNULコード送信キーと衝突
-imap <NUL> <C-Space>
-" SEGV...
-"inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
-inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>"
-inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-" to coexist with endwise
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-inoremap <expr> <C-e> neocomplcache#cancel_popup()
-
+" neocompl
+if s:can_use_neocomplete()
+  """""""""""" neocomplete
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#disable_auto_complete = 1
+  let g:neocomplete#enable_smart_case = 1
+  " deleted
+  "let g:neocomplete#enable_underbar_completion = 1
+  "let g:neocomplete#enable_camel_case_completion = 1
+  "let g:neocomplete#enable_auto_select = 1
+  let g:neocomplete#min_syntax_length = 3
+  " PuTTYのNULコード送信キーと衝突
+  imap <NUL> <C-Space>
+  " SEGV...
+  "inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+  inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>"
+  inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  " to coexist with endwise
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#close_popup() . "\<CR>"
+  endfunction
+  inoremap <expr> <C-e> neocomplete#cancel_popup()
+else
+  """""""""""" neocomplcache
+  let g:neocomplcache_enable_at_startup = 1
+  let g:neocomplcache_disable_auto_complete = 1
+  let g:neocomplcache_enable_smart_case = 1
+  let g:neocomplcache_enable_underbar_completion = 1
+  let g:neocomplcache_enable_camel_case_completion = 1
+  "let g:neocomplcache_enable_auto_select = 1
+  let g:neocomplcache_min_syntax_length = 3
+  " PuTTYのNULコード送信キーと衝突
+  imap <NUL> <C-Space>
+  " SEGV...
+  "inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+  inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>"
+  inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  " to coexist with endwise
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  endfunction
+  inoremap <expr> <C-e> neocomplcache#cancel_popup()
+endif
+" snippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#jumpable() ?
+\ "\<Plug>(neosnippet_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 " color
 set t_Co=256
 colorscheme molokai
