@@ -1,5 +1,3 @@
-[include]
-  path = ~/.gitconfig.local
 [core]
   pager = less -R
   excludesfile = ~/.gitignore
@@ -56,3 +54,5 @@
   # stash
   sta = stash
   stap = stash pop
+[include]
+  path = ~/.gitconfig.local

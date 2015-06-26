@@ -11,11 +11,9 @@ endfunction
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
-
-NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak', 'unix': 'make -f make_unix.mak'}}
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
 if s:can_use_neocomplete()
@@ -37,11 +35,12 @@ NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby', 'eruby', 
 "NeoBundleLazy 'taichouchou2/rsense-0.3', {'build': {'mac': 'ruby etc/config.rb > ~/.rsense', 'unix': 'ruby etc/config.rb > ~/.rsense'}}
 NeoBundleLazy 'marcus/rsense', {'autoload': {'filetypes': ['ruby', 'eruby', 'haml']}}
 " md
-NeoBundle 'Markdown'
-NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
+"NeoBundle 'Markdown'
+NeoBundleLazy 'plasticboy/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
 NeoBundleLazy 'mattn/webapi-vim', {'autoload': {'filetypes': 'markdown'}}
 "NeoBundleLazy 'mattn/mkdpreview-vim', {'autoload': {'filetypes': 'markdown'}}
-NeoBundleLazy 'kannokanno/previm', {'autoload': {'filetypes': 'markdown'}}
+NeoBundleLazy 'kannokanno/previm', {'autoload': {'filetypes': ['markdown', 'textile']}}
+NeoBundleLazy "aklt/plantuml-syntax", {'autoload': {'filetypes': 'plantuml'}}
 
 " quickrun
 NeoBundle 'thinca/vim-quickrun' 
@@ -53,6 +52,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'tomasr/molokai'
 " outline
 NeoBundle 'h1mesuke/unite-outline'
+call neobundle#end()
 
 " other settings
 set ruler
@@ -64,6 +64,9 @@ set expandtab
 " wrap
 set whichwrap=b,s,h,l,<,>,[,],~
 set nowrap
+autocmd FileType text setlocal textwidth=0
+" md
+autocmd BufNewFile,BufRead *.md :set filetype=markdown
 " search
 set hlsearch
 set ignorecase
