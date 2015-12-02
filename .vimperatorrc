@@ -28,8 +28,8 @@ nnoremap <C-j> :tabmove! +1<CR>
 let g:hintsio="ii"
 set hintchars=ifjklasdhguonmerwc
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+hi Hint z-index:5000; font-weight:bold; font-size:16px; color:white; background-color:red; border-width:0px; padding:0px 2px 0px 2px; position:absolute;
 
 " hatebu
 "javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
 "set complete+=H
-
