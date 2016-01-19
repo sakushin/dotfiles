@@ -89,6 +89,7 @@ if !isdirectory(expand('~/.vim/tmp'))
 endif
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
+set undodir=~/.vim/tmp
 " tab
 nnoremap <S-h> gT
 nnoremap <S-l> gt
