@@ -83,6 +83,12 @@ let mapleader = " "
 set wildmenu
 set wildmode=longest,list,full
 set history=10000
+" special files
+if !isdirectory(expand('~/.vim/tmp'))
+  call mkdir(expand('~/.vim/tmp'), 'p')
+endif
+set directory=~/.vim/tmp
+set backupdir=~/.vim/tmp
 " tab
 nnoremap <S-h> gT
 nnoremap <S-l> gt

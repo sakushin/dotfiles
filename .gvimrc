@@ -1,10 +1,16 @@
 filetype off
 filetype plugin indent off
 
+" singleton
+call neobundle#begin(expand('~/.vim/bundle/'))
+if has('clientserver')
+    NeoBundle 'thinca/vim-singleton'
+endif
+call neobundle#end()
+
 set guifont=Consolas:h8:cSHIFTJIS
 colorscheme molokai
 
-set nobackup
 "set noswapfile
 " 無名バッファ <=> OSクリップボード
 set clipboard=unnamed
@@ -12,22 +18,25 @@ set clipboard=unnamed
 set guioptions=rbL
 
 " singleton
+if has('clientserver')
+    call singleton#enable()
+endif
 " If starting gvim && arguments were given
 " (assuming double-click on file explorer)
-if has('gui_running') && argc()
-    let s:running_vim_list = filter(
-    \   split(serverlist(), '\n'),
-    \   'v:val !=? v:servername')
-    " If one or more Vim instances are running
-    if !empty(s:running_vim_list)
-        " Open given files in running Vim and exit.
-        silent execute '!start gvim'
-        \   '--servername' s:running_vim_list[0]
-        \   '--remote-tab-silent' join(argv(), ' ')
-        qa!
-    endif
-    unlet s:running_vim_list
-endif
+"if has('gui_running') && argc()
+"    let s:running_vim_list = filter(
+"    \   split(serverlist(), '\n'),
+"    \   'v:val !=? v:servername')
+"    " If one or more Vim instances are running
+"    if !empty(s:running_vim_list)
+"        " Open given files in running Vim and exit.
+"        silent execute '!start gvim'
+"        \   '--servername' s:running_vim_list[0]
+"        \   '--remote-tab-silent' join(argv(), ' ')
+"        qa!
+"    endif
+"    unlet s:running_vim_list
+"endif
 
 " サイズ
 set lines=48
@@ -99,6 +108,7 @@ if exists('&ambiwidth')
 endif
 
 filetype plugin indent on
+NeoBundleCheck
 
 " local settings (if exists)
 if filereadable(expand('~/.gvimrc.local'))
