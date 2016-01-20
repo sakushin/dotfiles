@@ -111,6 +111,9 @@ let g:quickrun_config = {
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 nnoremap <silent> <Leader>r :<C-u>QuickRun<CR>
 
+"""""""""""" markdown
+let g:vim_markdown_folding_disabled = 1
+
 """""""""""" previm
 if has('win32') || has('win64')
   let g:previm_open_cmd = 'rundll32 url.dll,FileProtocolHandler'
