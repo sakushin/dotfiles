@@ -2,11 +2,11 @@ filetype off
 filetype plugin indent off
 
 " singleton
-call neobundle#begin(expand('~/.vim/bundle/'))
+call dein#begin(expand('~/.vim'))
 if has('clientserver')
-    NeoBundle 'thinca/vim-singleton'
+  call dein#add('thinca/vim-singleton')
 endif
-call neobundle#end()
+call dein#end()
 
 set guifont=Consolas:h8:cSHIFTJIS
 colorscheme molokai
@@ -108,7 +108,9 @@ if exists('&ambiwidth')
 endif
 
 filetype plugin indent on
-NeoBundleCheck
+if dein#check_install()
+  call dein#install()
+endif
 
 " local settings (if exists)
 if filereadable(expand('~/.gvimrc.local'))
