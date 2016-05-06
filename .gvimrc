@@ -21,32 +21,11 @@ set guioptions=rbL
 if has('clientserver')
     call singleton#enable()
 endif
-" If starting gvim && arguments were given
-" (assuming double-click on file explorer)
-"if has('gui_running') && argc()
-"    let s:running_vim_list = filter(
-"    \   split(serverlist(), '\n'),
-"    \   'v:val !=? v:servername')
-"    " If one or more Vim instances are running
-"    if !empty(s:running_vim_list)
-"        " Open given files in running Vim and exit.
-"        silent execute '!start gvim'
-"        \   '--servername' s:running_vim_list[0]
-"        \   '--remote-tab-silent' join(argv(), ' ')
-"        qa!
-"    endif
-"    unlet s:running_vim_list
-"endif
 
 " サイズ
 set lines=48
 set columns=128
 
-" encoding line
-" set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-
-" tab
-"set showtabline=2
 " ビープの抑制
 set visualbell t_vb=
 
@@ -95,7 +74,8 @@ endif
 if has('autocmd')
   function! AU_ReCheck_FENC()
     if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-      let &fileencoding=&encoding
+      "let &fileencoding=&encoding
+      let &fileencoding='utf-8'
     endif
   endfunction
   autocmd BufReadPost * call AU_ReCheck_FENC()
