@@ -70,6 +70,7 @@ set wrapscan
 nnoremap <silent> <Esc><Esc> :<C-u>nohl<CR>
 " format
 set fileformats=unix,dos,mac
+set encoding=utf-8
 " remap leader
 let mapleader = " "
 " commandline
