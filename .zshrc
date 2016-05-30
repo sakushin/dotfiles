@@ -37,6 +37,7 @@ alias ls='ls --color'
 alias ll='ls --color -l'
 alias bruby='bundle exec ruby'
 alias tmux='tmux -2'
+alias less='less -S'
 
 export PATH=$HOME/bin:$PATH
 
