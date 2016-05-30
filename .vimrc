@@ -38,6 +38,7 @@ call dein#add('taichouchou2/vim-endwise', {'on_i': 1, 'lazy': 1})
 call dein#add('vim-ruby/vim-ruby', {'on_ft': ['ruby', 'eruby', 'haml'], 'lazy': 1})
 
 call dein#add('faith/vim-go', {'on_ft': ['go'], 'lazy': 1})
+call dein#add('elzr/vim-json', {'on_ft': 'json', 'lazy': 1})
 
 call dein#add('plasticboy/vim-markdown', {'on_ft': 'markdown', 'lazy': 1})
 call dein#add('mattn/webapi-vim', {'on_ft': 'markdown', 'lazy': 1})
@@ -78,8 +79,9 @@ set wildmenu
 set wildmode=longest,list,full
 set history=10000
 " special files
-if !isdirectory(expand('~/.vim/tmp'))
-  call mkdir(expand('~/.vim/tmp'), 'p')
+let s:tmpdir = expand('~/.vim/tmp')
+if !isdirectory(s:tmpdir)
+  call mkdir(s:tmpdir, 'p')
 endif
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
@@ -116,6 +118,9 @@ nnoremap <silent> <Leader>r :<C-u>QuickRun<CR>
 
 """""""""""" markdown
 let g:vim_markdown_folding_disabled = 1
+
+"""""""""""" json
+let g:vim_json_syntax_conceal = 0
 
 """""""""""" previm
 if has('win32') || has('win64')
