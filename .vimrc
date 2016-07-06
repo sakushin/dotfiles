@@ -13,15 +13,7 @@ endfunction
 call dein#begin(expand('~/.vim'))
 
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc', {
-\ 'build': {
-\     'windows': 'tools\\update-dll-mingw',
-\     'cygwin': 'make -f make_cygwin.mak',
-\     'mac': 'make',
-\     'linux': 'make',
-\     'unix': 'gmake',
-\    },
-\ })
+call dein#add('Shougo/vimproc', {'build': 'make'})
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/vimshell')
