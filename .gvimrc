@@ -8,7 +8,7 @@ if has('clientserver')
 endif
 call dein#end()
 
-set guifont=Consolas:h8:cSHIFTJIS
+set guifont=Consolas:h12:cSHIFTJIS
 colorscheme molokai
 
 "set noswapfile
