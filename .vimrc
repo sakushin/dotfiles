@@ -37,6 +37,9 @@ call dein#add('mattn/webapi-vim', {'on_ft': 'markdown', 'lazy': 1})
 call dein#add('kannokanno/previm', {'on_ft': ['markdown', 'textile'], 'lazy': 1})
 
 call dein#add("aklt/plantuml-syntax", {'on_ft': 'plantuml', 'lazy': 1})
+
+call dein#add('junegunn/vim-easy-align')
+
 call dein#add('thinca/vim-quickrun') 
 call dein#add('Lokaltog/vim-powerline')
 call dein#add('tomasr/molokai')
@@ -110,6 +113,7 @@ nnoremap <silent> <Leader>r :<C-u>QuickRun<CR>
 
 """""""""""" markdown
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
 
 """""""""""" json
 let g:vim_json_syntax_conceal = 0
@@ -186,6 +190,10 @@ endif
 " color
 set t_Co=256
 colorscheme molokai
+
+" easy align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " powerline settings
 set laststatus=2
