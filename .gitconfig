@@ -30,7 +30,6 @@
   cia = commit -a
   civ = commit -v
   ciav = commit -av
-  cirs = commit -av -c ORIG_HEAD # re-commit to fix after soft reset
   # checkout
   co = checkout
   cob = checkout -b
@@ -49,8 +48,6 @@
   # reset
   rs = reset
   rs2 = reset --soft HEAD^
-  #rsh = reset --hard HEAD
-  #rsh2 = reset --hard HEAD^
   # stash
   sta = stash
   stap = stash pop
