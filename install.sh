@@ -5,7 +5,7 @@ srcdir=`pwd`
 for f in .??*
 do
   [ "$f" = ".git" ] && continue
-  ln -snfv "$srcdir/$f" "$HOME/$f"
+  ln -sv "$srcdir/$f" "$HOME/$f"
 done
 
 mkdir -pv "$HOME/.vim"
