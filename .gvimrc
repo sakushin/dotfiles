@@ -1,13 +1,6 @@
 filetype off
 filetype plugin indent off
 
-" singleton
-call dein#begin(expand('~/.vim'))
-if has('clientserver')
-  call dein#add('thinca/vim-singleton')
-endif
-call dein#end()
-
 set guifont=Consolas:h12:cSHIFTJIS
 colorscheme molokai
 

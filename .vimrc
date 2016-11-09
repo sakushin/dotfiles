@@ -44,6 +44,10 @@ call dein#add('thinca/vim-quickrun')
 call dein#add('Lokaltog/vim-powerline')
 call dein#add('tomasr/molokai')
 
+if has('clientserver')
+  call dein#add('thinca/vim-singleton')
+endif
+
 call dein#end()
 
 " other settings
@@ -99,15 +103,18 @@ nnoremap <silent> <C-w><C-h> :<C-u>vertical res -5<CR>
 
 """""""""""" quickrun
 let g:quickrun_config = {
+\  '_': {
+\    'runner': 'vimproc',
+\    'runner/vimproc/updatetime': 100
+\  },
 \  'cpp': {
 \    'command': 'g++',
 \    'cmdopt': '-std=c++11'
+\  },
+\  'javascript': {
+\    'command': 'node',
 \  }
 \}
-"  '_': {
-"    'runner': 'vimproc',
-"    'runner/vimproc/updatetime': 10
-"  },
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 nnoremap <silent> <Leader>r :<C-u>QuickRun<CR>
 
