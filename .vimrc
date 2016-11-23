@@ -10,10 +10,17 @@ function! s:can_use_neocomplete()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
 endfunction
 
+function! s:can_use_denite()
+  return has('python3') && (v:version >= 800)
+endfunction
+
 call dein#begin(expand('~/.vim'))
 
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/vimproc', {'build': 'make'})
+if s:can_use_denite()
+  call dein#add('Shougo/denite.nvim')
+endif
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/vimshell')
@@ -132,18 +139,21 @@ elseif has('mac')
   let g:previm_open_cmd = 'open'
 endif
 
-"""""""""""" unite
+"""""""""""" denite/unite
+if s:can_use_denite()
+  call denite#custom#map('insert', '<Down>', 'move_to_next_line')
+  call denite#custom#map('insert', '<Up>', 'move_to_prev_line')
+  call denite#custom#map('insert', '<Tab>', 'choose_action')
+  call denite#custom#option('default', 'auto_highlight', 'true')
+  nnoremap <silent> <Leader>db :<C-u>Denite buffer<CR>
+  nnoremap <silent> <Leader>df :<C-u>DeniteBufferDir -buffer-name=files unite:file<CR>
+  nnoremap <silent> <Leader>dr :<C-u>DeniteBufferDir file_rec<CR>
+endif
 let g:unite_enable_start_insert = 1
 nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
-nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file file_mru file/new<CR>
-nnoremap <silent> <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
-nnoremap <silent> <Leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 nnoremap <silent> <Leader>uo :<C-u>Unite -no-start-insert -vertical -no-quit -winwidth=35 outline<CR>
-" project open
-nnoremap <silent> <Leader>up :<C-u>Unite file_rec:!<CR>
-" ネットワーク越しのファイルは提示対象外(逐次存在確認しているようで非常に重い) for Windows
-call unite#custom_source('file_mru', 'ignore_pattern', '^//')
+nnoremap <silent> <Leader>ur :<C-u>Unite file_rec:!<CR>
 
 """""""""""" vimfiler
 let g:vimfiler_edit_action = "persist_open"
