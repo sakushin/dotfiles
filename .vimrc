@@ -50,6 +50,7 @@ call dein#add('junegunn/vim-easy-align')
 call dein#add('thinca/vim-quickrun') 
 call dein#add('Lokaltog/vim-powerline')
 call dein#add('tomasr/molokai')
+call dein#add('tyru/open-browser.vim')
 
 if has('clientserver')
   call dein#add('thinca/vim-singleton')
@@ -211,6 +212,11 @@ colorscheme molokai
 " easy align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" open browser
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 " powerline settings
 set laststatus=2
