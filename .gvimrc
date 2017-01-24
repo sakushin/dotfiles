@@ -10,11 +10,6 @@ set clipboard=unnamed
 
 set guioptions=rbL
 
-" singleton
-if has('clientserver')
-    call singleton#enable()
-endif
-
 " サイズ
 set lines=48
 set columns=128
