@@ -28,10 +28,9 @@ call dein#add('Shougo/vimfiler')
 
 if s:can_use_neocomplete()
   call dein#add('Shougo/neocomplete', {'on_i': 1, 'lazy': 1})
+  call dein#add('Shougo/neosnippet', {'on_i': 1, 'lazy': 1})
+  call dein#add('Shougo/neosnippet-snippets', {'on_i': 1, 'lazy': 1})
 endif
-
-call dein#add('Shougo/neosnippet', {'on_i': 1, 'lazy': 1})
-call dein#add('Shougo/neosnippet-snippets', {'on_i': 1, 'lazy': 1})
 
 call dein#add('taichouchou2/vim-endwise', {'on_i': 1, 'lazy': 1})
 call dein#add('vim-ruby/vim-ruby', {'on_ft': ['ruby', 'eruby', 'haml'], 'lazy': 1})
@@ -160,51 +159,54 @@ nnoremap <silent> <Leader>ur :<C-u>Unite file_rec:!<CR>
 let g:vimfiler_edit_action = "persist_open"
 nnoremap <silent> <Leader>vf :<C-u>VimFiler -explorer -no-quit -toggle -split -simple -winwidth=35<CR> 
 
-"""""""""""" neocomplete
+"""""""""""" neocomplete, neosnippet
 if s:can_use_neocomplete()
+  let g:acp_enableAtStartup = 0
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplete#disable_auto_complete = 1
   let g:neocomplete#enable_smart_case = 1
   let g:neocomplete#enable_auto_select = 1
-  
-  " PuTTYのNULコード送信キーと衝突
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
+  " dictionary
+  let g:neocomplete#sources#dictionary#dictionaries = {
+        \ 'default': '',
+        \ }
+  " keyword
+  if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+  " avoid NUL code collision
   imap <NUL> <C-Space>
-  " SEGV...
-  "inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
-  "inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>"
   inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
-  inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+  smap <expr> <TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  imap <expr> <TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
+  imap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+  inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+  inoremap <expr> <C-e> neocomplete#cancel_popup()
+  inoremap <expr> <C-h> pumvisible() ? neocomplete#smart_close_popup() : "\<C-h>"
+  inoremap <expr> <BS> pumvisible() ? neocomplete#smart_close_popup() : "\<C-h>"
   " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function()
-    return pumvisible() ? "\<C-y>" : "\<CR>"
+    return pumvisible() ? (neosnippet#expandable() ? neosnippet#mappings#expand_impl() : "\<C-y>") : "\<CR>"
   endfunction
-  inoremap <expr> <C-e> neocomplete#cancel_popup()
-  inoremap <expr> <C-h> neocomplete#smart_close_popup() . "\<C-h>"
-  inoremap <expr> <BS> neocomplete#smart_close_popup() . "\<C-h>"
+  
   " enable omni complete
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  if has('conceal')
+    set conceallevel=0 concealcursor=i
+  endif
 endif
 
-" snippet
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#jumpable() ?
-\ "\<Plug>(neosnippet_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
 " color
 set t_Co=256
 colorscheme molokai
