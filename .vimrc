@@ -92,6 +92,7 @@ endif
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 set undodir=~/.vim/tmp
+set mouse=a
 " tab
 nnoremap <S-h> gT
 nnoremap <S-l> gt
