@@ -224,6 +224,11 @@ vmap gx <Plug>(openbrowser-smart-search)
 " powerline settings
 set laststatus=2
 
+" singleton
+if has('clientserver')
+  call singleton#enable()
+endif
+
 " after
 filetype plugin indent on
 
