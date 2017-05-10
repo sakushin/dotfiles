@@ -8,7 +8,7 @@ colorscheme molokai
 " 無名バッファ <=> OSクリップボード
 set clipboard=unnamed
 
-set guioptions=rbL
+set guioptions=''
 
 " サイズ
 set lines=48
