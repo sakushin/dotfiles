@@ -3,7 +3,7 @@
   excludesfile = ~/.gitignore
   autocrlf = input
 [user]
-	name = sakushin
+  name = sakushin
   email = sakushin20xx@gmail.com
 [pull]
   rebase = true
@@ -24,7 +24,6 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   # show-branch
   shbr = show-branch --sha1-name
-  showbr = show-branch --sha1-name
   # commit
   ci = commit
   cia = commit -a
@@ -39,15 +38,8 @@
   # rebase
   rb = rebase
   rbi = rebase -i
-  rbi2 = rebase -i HEAD~2
-  rbi3 = rebase -i HEAD~3
-  rbi4 = rebase -i HEAD~4
-  rbi5 = rebase -i HEAD~5
-  rbi6 = rebase -i HEAD~6
-  rbi7 = rebase -i HEAD~7
   # reset
   rs = reset
-  rs2 = reset --soft HEAD^
   # stash
   sta = stash
   stap = stash pop
