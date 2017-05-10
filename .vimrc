@@ -90,7 +90,7 @@ let s:tmpdir = expand('~/.vim/tmp')
 if !isdirectory(s:tmpdir)
   call mkdir(s:tmpdir, 'p')
 endif
-set directory=~/.vim/tmp
+set directory=~/.vim/tmp//
 set backupdir=~/.vim/tmp
 set undodir=~/.vim/tmp
 set mouse=a
