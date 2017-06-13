@@ -109,6 +109,10 @@ nnoremap <silent> <C-w><C-j> :<C-u>res +5<CR>
 nnoremap <silent> <C-w><C-k> :<C-u>res -5<CR>
 nnoremap <silent> <C-w><C-l> :<C-u>vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :<C-u>vertical res -5<CR>
+" clipboard
+if has('clipboard')
+  set clipboard=unnamed,autoselect
+endif
 
 """""""""""" quickrun
 let g:quickrun_config = {

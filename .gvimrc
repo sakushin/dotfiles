@@ -4,10 +4,6 @@ filetype plugin indent off
 set guifont=Consolas:h12:cSHIFTJIS
 colorscheme molokai
 
-"set noswapfile
-" 無名バッファ <=> OSクリップボード
-set clipboard=unnamed
-
 set guioptions=''
 
 " サイズ
