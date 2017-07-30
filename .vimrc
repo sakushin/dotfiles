@@ -14,6 +14,8 @@ function! s:can_use_denite()
   return has('python3') && (v:version >= 800)
 endfunction
 
+let g:vimproc#download_windows_dll = 1
+
 call dein#begin(expand('~/.vim'))
 
 call dein#add('Shougo/dein.vim')
