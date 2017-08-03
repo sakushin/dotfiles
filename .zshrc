@@ -32,6 +32,12 @@ if [ -n "$TMUX" ]; then
   add-zsh-hook precmd _tmux_alert
 fi
 
+# function
+function mcd() {
+  mkdir -p $1
+  cd $1
+}
+
 # alias
 alias ls='ls --color'
 alias ll='ls --color -l'
