@@ -53,6 +53,8 @@ call dein#add('Lokaltog/vim-powerline')
 call dein#add('tomasr/molokai')
 call dein#add('tyru/open-browser.vim')
 
+call dein#add('w0rp/ale')
+
 if has('clientserver')
   call dein#add('thinca/vim-singleton')
 endif
@@ -149,12 +151,12 @@ endif
 
 """""""""""" denite/unite
 if s:can_use_denite()
-  call denite#custom#map('insert', '<Down>', 'move_to_next_line')
-  call denite#custom#map('insert', '<Up>', 'move_to_prev_line')
-  call denite#custom#map('insert', '<Tab>', 'choose_action')
+  call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
+  call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
+  call denite#custom#map('insert', '<Tab>', '<denite:choose_action>', 'noremap')
   call denite#custom#option('default', 'auto_highlight', 'true')
   nnoremap <silent> <Leader>db :<C-u>Denite buffer<CR>
-  nnoremap <silent> <Leader>df :<C-u>DeniteBufferDir -buffer-name=files unite:file<CR>
+  nnoremap <silent> <Leader>df :<C-u>DeniteBufferDir file<CR>
   nnoremap <silent> <Leader>dr :<C-u>DeniteBufferDir file_rec<CR>
 endif
 let g:unite_enable_start_insert = 1
@@ -214,6 +216,9 @@ if s:can_use_neocomplete()
     set conceallevel=0 concealcursor=i
   endif
 endif
+
+""""""""""" ale
+let g:ale_linters = {'javascript': ['eslint']}
 
 " color
 set t_Co=256
