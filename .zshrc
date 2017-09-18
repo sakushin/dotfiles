@@ -19,7 +19,7 @@ setopt auto_cd
 setopt auto_param_keys
 setopt list_packed
 
-PROMPT="%n@%m:%~%(!.#.$) "
+PROMPT="%B%F{green}%n@%m%f:%F{blue}%~%f%(!.#.$)%b "
 PROMPT2="_> "
 SPROMPT="correct: %R -> %r [nyae]? "
 
