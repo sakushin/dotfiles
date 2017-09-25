@@ -18,6 +18,7 @@ setopt auto_menu
 setopt auto_cd
 setopt auto_param_keys
 setopt list_packed
+setopt inc_append_history
 
 PROMPT="%B%F{green}%n@%m%f:%F{blue}%~%f%(!.#.$)%b "
 PROMPT2="_> "
