@@ -105,10 +105,6 @@ nnoremap t :<C-u>tabnew<Space>
 " window
 set splitright
 set splitbelow
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
 nnoremap <silent> <C-w><C-j> :<C-u>res +5<CR>
 nnoremap <silent> <C-w><C-k> :<C-u>res -5<CR>
 nnoremap <silent> <C-w><C-l> :<C-u>vertical res +5<CR>
