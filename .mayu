@@ -14,7 +14,8 @@ key *英数 = *LeftControl
 key *無変換 = &SetImeStatus(off)
 key *変換 = &SetImeStatus(on)
 
-#M1 左親指
+#M1 補助
+key M1-*英数 = *Tab
 key M1-*A = C-*Z
 key M1-*S = C-*X
 key M1-*D = C-*C
@@ -43,8 +44,7 @@ key M1-*_8 = *F8
 key M1-*_9 = *F9
 key M1-*_0 = *F10
 
-#M2 右親指
-key M2-*Semicolon = *_0
+#M2 数字記号
 key M2-*A = *_1
 key M2-*S = *_2
 key M2-*D = *_3
@@ -54,8 +54,24 @@ key M2-*H = *_6
 key M2-*J = *_7
 key M2-*K = *_8
 key M2-*L = *_9
+key M2-*Semicolon = *_0
+key M2-*Colon = *HyphenMinus
+key M2-*RightSquareBracket = *CircumflexAccent
+key M2-*Enter = *YenSign
+key M2-*Q = S-*_1
+key M2-*W = S-*_2
+key M2-*E = S-*_3
+key M2-*R = S-*_4
+key M2-*T = S-*_5
+key M2-*Y = S-*_6
+key M2-*U = S-*_7
+key M2-*I = S-*_8
+key M2-*O = S-*_9
+key M2-*P = S-*HyphenMinus
+key M2-*CommercialAt = S-*CircumflexAccent
+key M2-*LeftSquareBracket = S-*YenSign
 
-#M1-M2 同時押し
+#M1-M2 補助拡張
 key M1-M2-*H = Home
 key M1-M2-*L = End
 key M1-M2-*J = PageDown
@@ -64,7 +80,7 @@ key M1-M2-*Tab = A-S-*Tab
 key M1-M2-*Q = A-*F4
 key M1-M2-*Space = *英数
 
-#ウィンドウ制御
+#M1-M2-C ウィンドウ制御
 key M1-M2-C-*H = &WindowMove(-64, 0)
 key M1-M2-C-*L = &WindowMove(64, 0)
 key M1-M2-C-*J = &WindowMove(0, 64)
@@ -73,4 +89,3 @@ key M1-M2-C-*O = &WindowMaximize
 key M1-M2-C-*U = &WindowMinimize
 key M1-M2-C-*A = &WindowSetAlpha(85)
 key M1-M2-C-*Tab = &WindowMonitorTo(current, 1)
-
