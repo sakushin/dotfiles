@@ -1,0 +1,121 @@
+# for GPD Pocket
+include "104.mayu"
+keymap Global
+if (WINDOWS)
+def option KeyboardDelay = disable 200 15
+endif
+
+#拡張モディファイア(One Shot)
+mod mod1 = !!LeftAlt
+mod mod2 = !!RightAlt
+
+#CapsLock -> Control
+mod control += CapsLock
+key *CapsLock = *LeftControl
+
+#mac風入力モード切り替え
+if (WINDOWS)
+key *LeftAlt = &SetImeStatus(off)
+key *RightAlt = &SetImeStatus(on)
+else
+key *LeftAlt = C-Space
+key *RightAlt = C-Space
+endif
+
+#配列調整
+mod control -= RightControl
+mod control -= LeftControl
+mod alt -= LeftAlt
+mod alt -= RightAlt
+mod windows -= LeftWindows
+mod windows += LeftControl
+key *LeftWindows = *LeftAlt
+key *LeftControl = *LeftWindows
+key *RightControl = *LeftSquareBracket
+key *SemiColon = *RightSquareBracket
+key *FullStop = *Comma
+key *Solidus = *FullStop
+key *FullStop = &Ignore
+key *RightShift = *Solidus
+key *Delete = *SemiColon
+key S-*BackSpace = *Delete
+key *FullStop = &Ignore
+if (WINDOWS)
+key *Applications = *MButton
+endif
+
+#M1 補助
+key M1-*CapsLock = *Tab
+key M1-*A = C-*Z
+key M1-*S = C-*X
+key M1-*D = C-*C
+key M1-*F = C-*V
+key M1-*H = *Left
+key M1-*J = *Down
+key M1-*K = *Up
+key M1-*L = *Right
+key M1-*U = *Delete
+key M1-*I = *Insert
+key M1-*O = *BackSpace
+key M1-*Q = *Esc
+key M1-*R = W-*R
+key M1-*Solidus = C-*F
+key M1-*Tab = A-*Tab
+key M1-*_1 = *F1
+key M1-*_2 = *F2
+key M1-*_3 = *F3
+key M1-*_4 = *F4
+key M1-*_5 = *F5
+key M1-*_6 = *F6
+key M1-*_7 = *F7
+key M1-*_8 = *F8
+key M1-*_9 = *F9
+key M1-*_0 = *F10
+
+#M2 数字記号
+key M2-*CapsLock = *GraveAccent
+key M2-*A = *_1
+key M2-*S = *_2
+key M2-*D = *_3
+key M2-*F = *_4
+key M2-*G = *_5
+key M2-*H = *_6
+key M2-*J = *_7
+key M2-*K = *_8
+key M2-*L = *_9
+key M2-*Enter = *_0
+key M2-*Tab = S-*GraveAccent
+key M2-*Q = S-*_1
+key M2-*W = S-*_2
+key M2-*E = S-*_3
+key M2-*R = S-*_4
+key M2-*T = S-*_5
+key M2-*Y = S-*_6
+key M2-*U = S-*_7
+key M2-*I = S-*_8
+key M2-*O = S-*_9
+key M2-*P = S-*_0
+key M2-*Delete = *HyphenMinus
+key M2-*BackSpace = *EqualsSign
+key M2-*RightShift = *ReverseSolidus
+
+#M1-M2 補助拡張
+key M1-M2-*H = Home
+key M1-M2-*L = End
+key M1-M2-*J = PageDown
+key M1-M2-*K = PageUp
+key M1-M2-*Tab = A-S-*Tab
+key M1-M2-*Q = A-*F4
+key M1-M2-*Space = *CapsLock
+
+#M1-M2-C ウィンドウ制御
+if (WINDOWS)
+key M1-M2-C-*H = &WindowMove(-64, 0)
+key M1-M2-C-*L = &WindowMove(64, 0)
+key M1-M2-C-*J = &WindowMove(0, 64)
+key M1-M2-C-*K = &WindowMove(0, -64)
+key M1-M2-C-*O = &WindowMaximize
+key M1-M2-C-*U = &WindowMinimize
+key M1-M2-C-*A = &WindowSetAlpha(85)
+key M1-M2-C-*Tab = &WindowMonitorTo(current, 1)
+endif
