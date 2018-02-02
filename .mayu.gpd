@@ -18,8 +18,8 @@ if (WINDOWS)
 key *LeftAlt = &SetImeStatus(off)
 key *RightAlt = &SetImeStatus(on)
 else
-key *LeftAlt = C-Space
-key *RightAlt = C-Space
+key *LeftAlt = C-BackQuote
+key *RightAlt = C-BackSlash
 endif
 
 #ФzЧёТ▓Ро
@@ -27,6 +27,7 @@ mod control -= RightControl
 mod control -= LeftControl
 mod alt -= LeftAlt
 mod alt -= RightAlt
+mod alt += LeftWindows
 mod windows -= LeftWindows
 mod windows += LeftControl
 key *LeftWindows = *LeftAlt
