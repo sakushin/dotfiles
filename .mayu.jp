@@ -1,21 +1,21 @@
-include "109.mayu" # 109 ƒL[ƒ{[ƒhİ’è
+include "109.mayu" # 109 ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰è¨­å®š
 keymap Global
 def option KeyboardDelay = disable 200 15
 
-#Šg’£ƒ‚ƒfƒBƒtƒ@ƒCƒA(One Shot)
-mod mod1 = !!–³•ÏŠ·
-mod mod2 = !!•ÏŠ·
+#æ‹¡å¼µãƒ¢ãƒ‡ã‚£ãƒ•ã‚¡ã‚¤ã‚¢(One Shot)
+mod mod1 = !!ç„¡å¤‰æ›
+mod mod2 = !!å¤‰æ›
 
 #CapsLock -> Control
-mod control += ‰p”
-key *‰p” = *LeftControl
+mod control += è‹±æ•°
+key *è‹±æ•° = *LeftControl
 
-#mac•—“ü—Íƒ‚[ƒhØ‚è‘Ö‚¦
-key *–³•ÏŠ· = &SetImeStatus(off)
-key *•ÏŠ· = &SetImeStatus(on)
+#macé¢¨å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰åˆ‡ã‚Šæ›¿ãˆ
+key *ç„¡å¤‰æ› = &SetImeStatus(off)
+key *å¤‰æ› = &SetImeStatus(on)
 
-#M1 •â•
-key M1-*‰p” = *Tab
+#M1 è£œåŠ©
+key M1-*è‹±æ•° = *Tab
 key M1-*A = C-*Z
 key M1-*S = C-*X
 key M1-*D = C-*C
@@ -44,7 +44,7 @@ key M1-*_8 = *F8
 key M1-*_9 = *F9
 key M1-*_0 = *F10
 
-#M2 ”š‹L†
+#M2 æ•°å­—è¨˜å·
 key M2-*A = *_1
 key M2-*S = *_2
 key M2-*D = *_3
@@ -71,16 +71,16 @@ key M2-*P = S-*HyphenMinus
 key M2-*CommercialAt = S-*CircumflexAccent
 key M2-*LeftSquareBracket = S-*YenSign
 
-#M1-M2 •â•Šg’£
+#M1-M2 è£œåŠ©æ‹¡å¼µ
 key M1-M2-*H = Home
 key M1-M2-*L = End
 key M1-M2-*J = PageDown
 key M1-M2-*K = PageUp
 key M1-M2-*Tab = A-S-*Tab
 key M1-M2-*Q = A-*F4
-key M1-M2-*Space = *‰p”
+key M1-M2-*Space = *è‹±æ•°
 
-#M1-M2-C ƒEƒBƒ“ƒhƒE§Œä
+#M1-M2-C ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆ¶å¾¡
 key M1-M2-C-*H = &WindowMove(-64, 0)
 key M1-M2-C-*L = &WindowMove(64, 0)
 key M1-M2-C-*J = &WindowMove(0, 64)
