@@ -1,0 +1,129 @@
+# 104/109キーボード抽象化
+if (KBD109)
+  if (LINUX)
+    def key LeftThumbs = 0x5e
+    def key RightThumbs = 0x5c
+  else
+    def key LeftThumbs = 0x7b
+    def key RightThumbs = 0x79
+  endif
+endif
+if (KBD104)
+  if (LINUX)
+    def key LeftThumbs = 0x38
+    def key RightThumbs = 0x64
+    def key Muhenkan = 0x5e
+    def key Henkan = 0x5c
+  else
+    def key LeftThumbs = 0x38
+    def key RightThumbs = E0-0x38
+    def key Muhenkan = 0x7b
+    def key Henkan = 0x79
+  endif
+endif
+def key LeftOfA = 0x3a
+def key RightOfSemicolon = 0x28
+def key Right2OfSemicolon = 0x2b
+def key RightOfP = 0x1a
+def key Right2OfP = 0x1b
+def key RightOf0 = 0x0c
+def key Right2Of0 = 0x0d
+def key LeftOf1 = 0x29
+
+if (!LINUX)
+  def option KeyboardDelay = disable 200 15
+endif
+
+# 拡張モディファイア(One Shot)
+mod mod1 = !!LeftThumbs
+mod mod2 = !!RightThumbs
+
+# CapsLock -> Control
+mod control += LeftOfA
+key *LeftOfA = *LeftControl
+
+# 104キーボード用配置調整
+if (KBD104)
+  mod alt -= LeftAlt
+  mod windows -= RightWindows
+  mod alt += LeftWindows
+  key *LeftWindows = *LeftAlt
+  mod windows += Applications
+  key *Applications = *RightWindows
+  key *LeftThumbs = *Muhenkan
+  key *RightThumbs = *Henkan
+endif
+
+# mac風入力モード切り替え
+if (!LINUX)
+  key *LeftThumbs = &SetImeStatus(off)
+  key *RightThumbs = &SetImeStatus(on)
+endif
+
+
+# 左親指
+key M1-*LeftOfA = *Tab
+key M1-*A = C-*Z
+key M1-*S = C-*X
+key M1-*D = C-*C
+key M1-*F = C-*V
+key M1-*H = *Left
+key M1-*J = *Down
+key M1-*K = *Up
+key M1-*L = *Right
+key M1-*Semicolon = *Enter
+key M1-*U = *Delete
+key M1-*I = *Insert
+key M1-*O = *BackSpace
+key M1-*Q = *Esc
+key M1-*R = W-*R
+key M1-*Solidus = C-*F
+key M1-*Tab = A-*Tab
+
+# 右親指
+key M2-*LeftOfA = *LeftOf1
+key M2-*LeftControl = *LeftOf1
+key M2-*A = *_1
+key M2-*S = *_2
+key M2-*D = *_3
+key M2-*F = *_4
+key M2-*G = *_5
+key M2-*H = *_6
+key M2-*J = *_7
+key M2-*K = *_8
+key M2-*L = *_9
+key M2-*Semicolon = *_0
+key M2-*RightOfSemicolon = *RightOf0
+key M2-*Right2OfSemicolon = *Right2Of0
+key M2-*Q = *F1
+key M2-*W = *F2
+key M2-*E = *F3
+key M2-*R = *F4
+key M2-*T = *F5
+key M2-*Y = *F6
+key M2-*U = *F7
+key M2-*I = *F8
+key M2-*O = *F9
+key M2-*P = *F10
+key M2-*RightOfP = *F11
+key M2-*Right2OfP = *F12
+
+# 左右親指同時
+key M1-M2-*H = Home
+key M1-M2-*L = End
+key M1-M2-*J = PageDown
+key M1-M2-*K = PageUp
+key M1-M2-*Tab = A-S-*Tab
+key M1-M2-*Q = A-*F4
+
+# 左右Ctrl同時
+if (!LINUX)
+  key M1-M2-C-*H = &WindowMove(-64, 0)
+  key M1-M2-C-*L = &WindowMove(64, 0)
+  key M1-M2-C-*J = &WindowMove(0, 64)
+  key M1-M2-C-*K = &WindowMove(0, -64)
+  key M1-M2-C-*O = &WindowMaximize
+  key M1-M2-C-*U = &WindowMinimize
+  key M1-M2-C-*A = &WindowSetAlpha(85)
+  key M1-M2-C-*Tab = &WindowMonitorTo(current, 1)
+endif
