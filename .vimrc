@@ -7,7 +7,11 @@ filetype plugin indent off
 set runtimepath^=~/.vim/repos/github.com/Shougo/dein.vim
 
 function! s:can_use_neocomplete()
-  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+  return has('lua') && (v:version >= 704)
+endfunction
+
+function! s:can_use_deoplete()
+  return has('python3') && (v:version >= 800)
 endfunction
 
 function! s:can_use_denite()
@@ -28,8 +32,17 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/vimshell')
 call dein#add('Shougo/vimfiler')
 
-if s:can_use_neocomplete()
+if s:can_use_deoplete()
+  call dein#add('Shougo/deoplete.nvim', {'on_i': 1, 'lazy': 1})
+	if !has('nvim')
+		call dein#add('roxma/nvim-yarp')
+		call dein#add('roxma/vim-hug-neovim-rpc')
+	endif
+elseif s:can_use_neocomplete()
   call dein#add('Shougo/neocomplete', {'on_i': 1, 'lazy': 1})
+endif
+
+if s:can_use_neocomplete()
   call dein#add('Shougo/neosnippet', {'on_i': 1, 'lazy': 1})
   call dein#add('Shougo/neosnippet-snippets', {'on_i': 1, 'lazy': 1})
 endif
@@ -167,7 +180,9 @@ let g:vimfiler_edit_action = "persist_open"
 nnoremap <silent> <Leader>vf :<C-u>VimFiler -explorer -no-quit -toggle -split -simple -winwidth=35<CR> 
 
 """""""""""" neocomplete, neosnippet
-if s:can_use_neocomplete()
+if s:can_use_deoplete()
+  let g:deoplete#enable_at_startup = 1
+elseif s:can_use_neocomplete()
   let g:acp_enableAtStartup = 0
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplete#disable_auto_complete = 1
