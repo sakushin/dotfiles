@@ -55,10 +55,6 @@ call dein#add('tyru/open-browser.vim')
 
 call dein#add('w0rp/ale')
 
-if has('clientserver')
-  call dein#add('thinca/vim-singleton')
-endif
-
 call dein#end()
 
 " other settings
@@ -232,11 +228,6 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 " powerline settings
 set laststatus=2
-
-" singleton
-if has('clientserver')
-  call singleton#enable()
-endif
 
 " after
 filetype plugin indent on
