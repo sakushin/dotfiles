@@ -52,6 +52,7 @@ if (KBD104)
   key *Applications = *RightWindows
   key *LeftThumbs = *Muhenkan
   key *RightThumbs = *Henkan
+  key *RightWindows =  *LeftWindows
 endif
 
 # mac風入力モード切り替え
@@ -63,6 +64,7 @@ endif
 
 # 左親指
 key M1-*LeftOfA = *Tab
+key M1-*LeftControl = *Tab
 key M1-*A = C-*Z
 key M1-*S = C-*X
 key M1-*D = C-*C
@@ -95,6 +97,7 @@ key M2-*L = *_9
 key M2-*Semicolon = *_0
 key M2-*RightOfSemicolon = *RightOf0
 key M2-*Right2OfSemicolon = *Right2Of0
+key M2-*Enter = *Right2Of0
 key M2-*Q = *F1
 key M2-*W = *F2
 key M2-*E = *F3
