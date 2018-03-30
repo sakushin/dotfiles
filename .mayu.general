@@ -53,6 +53,9 @@ if (KBD104)
   key *LeftThumbs = *Muhenkan
   key *RightThumbs = *Henkan
   key *RightWindows =  *LeftWindows
+  mod ctrl -= RightControl
+  mod windows += RightControl
+  key *RightControl = *LeftWindows
 endif
 
 # mac風入力モード切り替え
