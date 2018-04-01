@@ -107,7 +107,7 @@ nnoremap <silent> <C-w><C-l> :<C-u>vertical res +5<CR>
 nnoremap <silent> <C-w><C-h> :<C-u>vertical res -5<CR>
 " clipboard
 if has('clipboard')
-  set clipboard=unnamedplus
+  set clipboard=unnamedplus,unnamed
 endif
 
 """""""""""" quickrun
