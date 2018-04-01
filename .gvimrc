@@ -1,7 +1,7 @@
 filetype off
 filetype plugin indent off
 
-set guifont=Ricty:h12:cSHIFTJIS
+set guifont=Cica:h12
 colorscheme molokai
 
 set guioptions=''
