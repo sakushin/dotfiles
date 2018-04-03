@@ -45,14 +45,15 @@ key *LeftOfA = *LeftControl
 # 104キーボード用配置調整
 if (KBD104)
   mod alt -= LeftAlt
-  mod windows -= RightWindows
+  key *LeftThumbs = *Muhenkan
+  mod alt -= RightAlt
+  key *RightThumbs = *Henkan
+  mod windows -= LeftWindows
   mod alt += LeftWindows
   key *LeftWindows = *LeftAlt
-  mod windows += Applications
-  key *Applications = *RightWindows
-  key *LeftThumbs = *Muhenkan
-  key *RightThumbs = *Henkan
   key *RightWindows =  *LeftWindows
+  mod windows += Applications
+  key *Applications = *LeftWindows
   mod ctrl -= RightControl
   mod windows += RightControl
   key *RightControl = *LeftWindows
