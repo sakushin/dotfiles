@@ -1,0 +1,10 @@
+set clipboard=unnamed
+
+set hlsearch
+set ignorecase
+set smartcase
+nnoremap <silent> <Esc><Esc> :<C-u>nohl<CR>
+nnoremap <S-h> gT
+nnoremap <S-l> gt
+set splitright
+set splitbelow
