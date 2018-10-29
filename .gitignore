@@ -20,3 +20,4 @@ target/
 *.swp
 *~
 .bundle/
+.envrc
