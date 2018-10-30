@@ -1,0 +1,14 @@
+map b :buffer<Space>
+map B :bookmark<Space>
+map L nextTab
+map H previousTab
+map <C-l> goForward
+map <C-h> goBack
+map d closeTab
+map u lastClosedTab
+let barposition = "bottom"
+let searchengine twitter = ["https://twitter.com/", "https://twitter.com/search?q=%s"]
+let searchalias g = "google"
+let searchalias t = "twitter"
+let completionengines = ["google", "twitter"]
+let blacklists = ["*://mail.google.com/*"]
