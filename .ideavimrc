@@ -6,5 +6,8 @@ set smartcase
 nnoremap <silent> <Esc><Esc> :<C-u>nohl<CR>
 nnoremap <S-h> gT
 nnoremap <S-l> gt
+nnoremap <C-e> :<C-u>action RecentFiles<CR>
+nnoremap gh :<C-u>action Back<CR>
+nnoremap gl :<C-u>action Forward<CR>
 set splitright
 set splitbelow
