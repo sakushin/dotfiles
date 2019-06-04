@@ -11,3 +11,5 @@ nnoremap gh :<C-u>action Back<CR>
 nnoremap gl :<C-u>action Forward<CR>
 set splitright
 set splitbelow
+set visualbell
+set noerrorbells
