@@ -63,6 +63,7 @@ syntax on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set nofixeol
 " wrap
 set whichwrap=b,s,h,l,<,>,[,],~
 set nowrap
