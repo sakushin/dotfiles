@@ -3,10 +3,10 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-autoload -U compinit
-compinit -u
-autoload colors
-colors
+autoload -U compinit; compinit
+autoload -U colors; colors
+
+zstyle ':completion:*' menu select interactive
 
 setopt prompt_subst
 setopt list_types
