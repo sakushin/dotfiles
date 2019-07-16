@@ -213,7 +213,6 @@ endif
 
 """"""""""" ale
 let g:ale_linters = {'javascript': ['eslint']}
-let g:ale_echo_cursor = 0
 
 " color
 set t_Co=256
