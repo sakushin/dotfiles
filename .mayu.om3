@@ -1,0 +1,25 @@
+# for GPD Pocket
+include ".mayu.us"
+
+# mod2 再アサイン
+def key RightThumbs = 0x28
+mod mod2 = !!RightThumbs
+key *RightThumbs = *Henkan
+
+# Z列補足
+mod windows += Right
+key *Right = *LeftWindows
+
+# A列補足
+key *Delete = *Semicolon
+key *BackSpace = *Quote
+
+# Q列補足
+key *Semicolon = *LeftSquareBracket
+key *Left = *RightSquareBracket
+key *RightShift = *ReverseSolidus
+
+# 1列補足
+key M2-*Enter = *_0
+key M2-*Delete = *HyphenMinus
+key M2-*BackSpace = *EqualsSign
