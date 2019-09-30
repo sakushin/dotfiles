@@ -1,6 +1,7 @@
 set clipboard=unnamed
 
 set hlsearch
+set incsearch
 set ignorecase
 set smartcase
 nnoremap <silent> <Esc><Esc> :<C-u>nohl<CR>
