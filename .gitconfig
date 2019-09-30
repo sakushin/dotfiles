@@ -5,6 +5,8 @@
 [user]
   name = sakushin
   email = sakushin20xx@gmail.com
+[push]
+  default = current
 [pull]
   rebase = true
 [merge]
