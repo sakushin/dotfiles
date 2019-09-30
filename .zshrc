@@ -44,6 +44,7 @@ alias ls='ls --color'
 alias ll='ls --color -l'
 alias la='ls --color -la'
 alias less='less -S'
+alias diff='diff --color'
 
 export PATH=$HOME/bin:$PATH
 
