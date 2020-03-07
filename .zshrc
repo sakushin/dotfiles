@@ -45,6 +45,15 @@ alias ll='ls --color -l'
 alias la='ls --color -la'
 alias less='less -S'
 alias diff='diff --color'
+# aws
+alias aws-ecr-auth='aws ecr get-login-password | docker login --username AWS --password-stdin aws_account_id.dkr.ap-northeast-1.amazonaws.com'
+alias aws-logs-browse='xdg-open "https://console.aws.amazon.com/cloudwatch/home#logEventViewer:group=$(aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco);start=PT30S"'
+alias aws-logs-select='aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco'
+alias aws-logs-tailf='awslogs get -SGw $(aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco)'
+alias aws-ssm-param-select='aws ssm get-parameter --with-decryption --name $(aws ssm describe-parameters | jq -r ".Parameters[].Name" | peco) | jq -r ".Parameter.Value"'
+# android
+alias android-emulator-select='emulator @$(avdmanager list avd | grep Name: | awk '\''{print $2}'\'' | peco)'
+
 
 export PATH=$HOME/bin:$PATH
 
