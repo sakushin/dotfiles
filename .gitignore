@@ -1,6 +1,6 @@
 # my scripts
 /my/
-.sakushin
+*sakushin*
 
 # maven
 target/
@@ -22,3 +22,7 @@ target/
 *~
 .bundle/
 .envrc
+
+# env
+.env
+docker-compose.override.y*ml
