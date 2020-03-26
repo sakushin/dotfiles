@@ -51,6 +51,7 @@ alias aws-logs-browse='xdg-open "https://console.aws.amazon.com/cloudwatch/home#
 alias aws-logs-select='aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco'
 alias aws-logs-tailf='awslogs get -SGw $(aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco)'
 alias aws-ssm-param-select='aws ssm get-parameter --with-decryption --name $(aws ssm describe-parameters | jq -r ".Parameters[].Name" | peco) | jq -r ".Parameter.Value"'
+alias aws-ssm-param-browse='xdg-open "https://console.aws.amazon.com/systems-manager/parameters/$(aws ssm describe-parameters | jq -r ".Parameters[].Name" | peco | sed "s@/@%252F@g")/description"'
 # android
 alias android-emulator-select='emulator @$(avdmanager list avd | grep Name: | awk '\''{print $2}'\'' | peco)'
 
