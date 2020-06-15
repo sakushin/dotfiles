@@ -54,7 +54,7 @@ call dein#add('Lokaltog/vim-powerline')
 call dein#add('tomasr/molokai')
 call dein#add('tyru/open-browser.vim')
 
-call dein#add('w0rp/ale')
+call dein#add('dense-analysis/ale')
 
 call dein#end()
 
