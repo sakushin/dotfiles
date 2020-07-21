@@ -40,6 +40,7 @@ call dein#add('vim-ruby/vim-ruby', {'on_ft': ['ruby', 'eruby', 'haml'], 'lazy': 
 call dein#add('fatih/vim-go', {'on_ft': ['go'], 'lazy': 1})
 call dein#add('elzr/vim-json', {'on_ft': 'json', 'lazy': 1})
 call dein#add('leafgarland/typescript-vim', {'on_ft': 'typescript', 'lazy': 1})
+call dein#add ('cespare/vim-toml', {'on_ft': 'toml', 'lazy': 1})
 
 call dein#add('plasticboy/vim-markdown', {'on_ft': 'markdown', 'lazy': 1})
 call dein#add('mattn/webapi-vim', {'on_ft': 'markdown', 'lazy': 1})
