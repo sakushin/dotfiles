@@ -46,7 +46,7 @@ alias la='ls --color -la'
 alias less='less -S'
 alias diff='diff --color'
 # aws
-alias aws-ecr-auth='aws ecr get-login-password | docker login --username AWS --password-stdin aws_account_id.dkr.ap-northeast-1.amazonaws.com'
+alias aws-ecr-auth='aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin $(aws sts get-caller-identity | jq -r .Account).dkr.ecr.ap-northeast-1.amazonaws.com'
 alias aws-logs-browse='xdg-open "https://console.aws.amazon.com/cloudwatch/home#logEventViewer:group=$(aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco);start=PT30S"'
 alias aws-logs-select='aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco'
 alias aws-logs-tailf='awslogs get -SGw --timestamp $(aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco)'
