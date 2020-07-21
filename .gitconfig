@@ -1,7 +1,7 @@
 [core]
   pager = less -R
   excludesfile = ~/.gitignore
-  autocrlf = input
+  autocrlf = false
 [user]
   name = sakushin
   email = sakushin20xx@gmail.com
