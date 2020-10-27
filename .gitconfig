@@ -47,5 +47,7 @@
   # stash
   sta = stash
   stap = stash pop
+[diff "cp932"]
+	textconv = nkf
 [include]
   path = ~/.gitconfig.local

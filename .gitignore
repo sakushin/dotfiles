@@ -22,6 +22,7 @@ target/
 *~
 .bundle/
 .envrc
+.~*
 
 # env
 .env
