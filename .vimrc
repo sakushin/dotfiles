@@ -57,6 +57,9 @@ call dein#add('tyru/open-browser.vim')
 
 call dein#add('dense-analysis/ale')
 
+call dein#add('prabirshrestha/vim-lsp')
+call dein#add('mattn/vim-lsp-settings')
+
 call dein#end()
 
 " other settings
