@@ -52,12 +52,13 @@ alias aws-logs-browse='xdg-open "https://console.aws.amazon.com/cloudwatch/home#
 alias aws-logs-tailf='awslogs get -SGw --timestamp $(aws-logs-select)'
 alias aws-ssm-param-select='aws ssm describe-parameters | jq -r ".Parameters[].Name" | peco'
 alias aws-ssm-param-get='aws ssm get-parameter --with-decryption --name $(aws-ssm-param-select) | jq -r ".Parameter.Value"'
-alias aws-ssm-param-browse='xdg-open "https://console.aws.amazon.com/systems-manager/parameters/$(aws-ssm-param-select)/description"'
+alias aws-ssm-param-browse='xdg-open "https://console.aws.amazon.com/systems-manager/parameters$(aws-ssm-param-select)/description"'
 alias aws-cfn-stack-select='aws cloudformation describe-stacks | jq -r ".Stacks[].StackName" | peco'
 alias aws-cfn-resource-get='aws cloudformation describe-stack-resources --stack-name $(aws-cfn-stack-select) | jq ".StackResources | map({Key:.LogicalResourceId,Value:.PhysicalResourceId}) | from_entries"'
 alias aws-cfn-output-get='aws cloudformation describe-stacks --stack-name $(aws-cfn-stack-select) | jq ".Stacks[0].Outputs | map({key:.OutputKey, value:.OutputValue}) | from_entries"'
 alias aws-cfn-parameter-get='aws cloudformation describe-stacks --stack-name $(aws-cfn-stack-select) | jq ".Stacks[0].Parameters | map({key:.ParameterKey, value:.ParameterValue}) | from_entries"'
 alias aws-cfn-template-get='aws cloudformation get-template --stack-name $(aws-cfn-stack-select) | jq -r ".TemplateBody"'
+alias aws-cognito-user-pool-select='aws cognito-idp list-user-pools --max-results 60 | jq -r ".UserPools[] | [.Id, .Name] | join(\":\")" | peco | cut -d: -f1'
 
 # android
 alias android-emulator-select='avdmanager list avd | grep Name: | awk '\''{print $2}'\'' | peco'
