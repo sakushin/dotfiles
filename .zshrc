@@ -59,6 +59,8 @@ alias aws-cfn-output-get='aws cloudformation describe-stacks --stack-name $(aws-
 alias aws-cfn-parameter-get='aws cloudformation describe-stacks --stack-name $(aws-cfn-stack-select) | jq ".Stacks[0].Parameters | map({key:.ParameterKey, value:.ParameterValue}) | from_entries"'
 alias aws-cfn-template-get='aws cloudformation get-template --stack-name $(aws-cfn-stack-select) | jq -r ".TemplateBody"'
 alias aws-cognito-user-pool-select='aws cognito-idp list-user-pools --max-results 60 | jq -r ".UserPools[] | [.Id, .Name] | join(\":\")" | peco | cut -d: -f1'
+alias aws-amplify-app-select='aws amplify list-apps | jq -r ".apps[] | [.appId, .name] | join(\":\")" | peco'
+alias aws-amplify-app-get='aws amplify get-app --app-id $(aws-amplify-app-select | cut -d: -f1)'
 
 # android
 alias android-emulator-select='avdmanager list avd | grep Name: | awk '\''{print $2}'\'' | peco'
