@@ -37,14 +37,13 @@ endif
 call dein#add('taichouchou2/vim-endwise', {'on_i': 1, 'lazy': 1})
 call dein#add('vim-ruby/vim-ruby', {'on_ft': ['ruby', 'eruby', 'haml'], 'lazy': 1})
 
-call dein#add('fatih/vim-go', {'on_ft': ['go'], 'lazy': 1})
 call dein#add('elzr/vim-json', {'on_ft': 'json', 'lazy': 1})
 call dein#add('leafgarland/typescript-vim', {'on_ft': 'typescript', 'lazy': 1})
 call dein#add ('cespare/vim-toml', {'on_ft': 'toml', 'lazy': 1})
 
 call dein#add('plasticboy/vim-markdown', {'on_ft': 'markdown', 'lazy': 1})
 call dein#add('mattn/webapi-vim', {'on_ft': 'markdown', 'lazy': 1})
-call dein#add('kannokanno/previm', {'on_ft': ['markdown', 'textile'], 'lazy': 1})
+call dein#add('previm/previm', {'on_ft': ['markdown', 'textile'], 'lazy': 1})
 
 call dein#add("aklt/plantuml-syntax", {'on_ft': 'plantuml', 'lazy': 1})
 
