@@ -62,6 +62,8 @@ alias aws-cfn-template-get='aws cloudformation get-template --stack-name $(aws-c
 alias aws-cognito-user-pool-select='aws cognito-idp list-user-pools --max-results 60 | jq -r ".UserPools[] | [.Id, .Name] | join(\":\")" | peco | cut -d: -f1'
 alias aws-amplify-app-select='aws amplify list-apps | jq -r ".apps[] | [.appId, .name] | join(\":\")" | peco'
 alias aws-amplify-app-get='aws amplify get-app --app-id $(aws-amplify-app-select | cut -d: -f1)'
+alias aws-amplify-browse='xdg-open "https://ap-northeast-1.console.aws.amazon.com/amplify/home?region=ap-northeast-1#/$(aws-amplify-app-select | cut -d: -f1)"'
+alias aws-route53-hosted-zone-select='aws route53 list-hosted-zones | jq -r ".HostedZones[] | [.Id, .Name] | join(\":\")" | peco | cut -d: -f1'
 alias aws-ddb-table-select='aws dynamodb list-tables | jq -r ".TableNames[]" | peco'
 alias aws-ddb-scan='aws dynamodb scan --table-name $(aws-ddb-table-select)'
 
@@ -69,6 +71,14 @@ alias aws-ddb-scan='aws dynamodb scan --table-name $(aws-ddb-table-select)'
 alias android-emulator-select='avdmanager list avd | grep Name: | awk '\''{print $2}'\'' | peco'
 alias android-emulator-run='emulator @$(android-emulator-select)'
 
+# history
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
 
 export PATH=$HOME/bin:$PATH
 

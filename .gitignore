@@ -1,10 +1,5 @@
 # my scripts
-/my/
 *sakushin*
-
-# maven
-target/
-.repository
 
 # idea
 .idea/
@@ -23,6 +18,7 @@ target/
 .bundle/
 .envrc
 .~*
+samconfig.toml
 
 # env
 .env
