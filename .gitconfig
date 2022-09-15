@@ -36,6 +36,11 @@
   # checkout
   co = checkout
   cob = checkout -b
+  # switch
+  sw = switch
+  swc = switch -c
+  # restore
+  rst = restore
   # branch
   br = branch
   brr = branch -r
