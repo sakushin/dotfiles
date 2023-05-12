@@ -139,6 +139,14 @@ require('packer').startup(function(use)
           vim.bo.expandtab = false;
         end
       })
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = "make",
+        callback = function()
+          vim.bo.tabstop = 4;
+          vim.bo.shiftwidth = 4;
+          vim.bo.expandtab = false;
+        end
+      })
     end
   }
 
@@ -182,9 +190,9 @@ require('packer').startup(function(use)
         end
       end
 
-      vim.keymap.set('n', '<leader>ff', function() builtin.live_grep { hidden = true } end)
-      vim.keymap.set('n', '<leader>fn', function() builtin.find_files { hidden = true, previewer = false } end)
-      vim.keymap.set('n', '<leader>fe', ext('file_browser', nil, { hidden = true, previewer = false }))
+      vim.keymap.set('n', '<leader>ff', function() builtin.live_grep { hidden = true, file_ignore_patterns = {'git'} } end)
+      vim.keymap.set('n', '<leader>fn', function() builtin.find_files { hidden = true, previewer = false, file_ignore_patterns = {'git'} } end)
+      vim.keymap.set('n', '<leader>fe', ext('file_browser', nil, { hidden = true, previewer = false, file_ignore_patterns = {'git'} }))
       vim.keymap.set('n', '<leader>fp', ext('packer'))
       vim.keymap.set('n', '<leader>fb', builtin.buffers)
     end

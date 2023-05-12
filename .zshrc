@@ -43,6 +43,7 @@ function mcd() {
 alias ls='ls --color'
 alias ll='ls --color -l'
 alias la='ls --color -la'
+alias vi='nvim'
 alias less='less -S'
 alias diff='diff --color'
 alias lastpane="tr '\n' ' ' | tmux load-buffer -b tmp - && tmux paste-buffer -b tmp -d -t !"
