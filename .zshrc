@@ -69,6 +69,9 @@ alias aws-amplify-browse='xdg-open "https://ap-northeast-1.console.aws.amazon.co
 alias aws-route53-hosted-zone-select='aws route53 list-hosted-zones | jq -r ".HostedZones[] | [.Id, .Name] | join(\":\")" | peco | cut -d: -f1'
 alias aws-ddb-table-select='aws dynamodb list-tables | jq -r ".TableNames[]" | peco'
 alias aws-ddb-scan='aws dynamodb scan --table-name $(aws-ddb-table-select)'
+aws-ddb-statement () {
+  aws dynamodb execute-statement --statement "$(cat)"
+}
 
 # android
 alias android-emulator-select='avdmanager list avd | grep Name: | awk '\''{print $2}'\'' | peco'

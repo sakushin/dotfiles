@@ -218,6 +218,8 @@ require('packer').startup(function(use)
       vim.keymap.set('n', '<leader>r', ':<C-u>QuickRun<CR>', { silent = true, nowait = true, noremap = true })
     end
   }
+
+  use 'github/copilot.vim'
 end)
 
 vim.cmd([[

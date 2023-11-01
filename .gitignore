@@ -18,7 +18,6 @@
 .bundle/
 .envrc
 .~*
-samconfig.toml
 packer_compiled.lua
 
 # env

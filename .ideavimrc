@@ -1,4 +1,4 @@
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 set hlsearch
 set incsearch
