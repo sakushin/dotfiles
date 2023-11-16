@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=2000
+SAVEHIST=2000
 
 autoload -U compinit; compinit
 autoload -U colors; colors
@@ -79,7 +79,7 @@ alias android-emulator-run='emulator @$(android-emulator-select)'
 
 # history
 function peco-history-selection() {
-    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+    BUFFER=$(history -n 1 | tac | awk '!a[$0]++' | peco | sed 's/\\n/\n/g')
     CURSOR=$#BUFFER
     zle reset-prompt
 }
