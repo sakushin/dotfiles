@@ -48,6 +48,7 @@ alias less='less -S'
 alias diff='diff --color'
 alias lastpane="tr '\n' ' ' | tmux load-buffer -b tmp - && tmux paste-buffer -b tmp -d -t !"
 alias teeclip="tee >(xsel -bi)"
+alias base62id="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 22"
 # aws
 alias aws-ecr-auth='aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin $(aws sts get-caller-identity | jq -r .Account).dkr.ecr.ap-northeast-1.amazonaws.com'
 alias aws-logs-select='aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | peco'
