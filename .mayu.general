@@ -85,6 +85,10 @@ key M1-*Q = *Esc
 key M1-*R = W-*R
 key M1-*Solidus = C-*F
 key M1-*Tab = A-*Tab
+key M1-*N = Home
+key M1-*M = PageDown
+key M1-*Comma = PageUp
+key M1-*FullStop = End
 
 # 右親指
 key M2-*LeftOfA = *LeftOf1
