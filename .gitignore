@@ -22,4 +22,6 @@ packer_compiled.lua
 
 # env
 .env
+.local.env
+.override.env
 docker-compose.override.y*ml
