@@ -89,5 +89,9 @@ bindkey '^R' peco-history-selection
 
 export PATH=$HOME/bin:$PATH
 
+if type direnv > /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
 # local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
