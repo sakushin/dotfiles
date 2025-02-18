@@ -36,7 +36,6 @@ require('packer').startup(function(use)
       -- edit
       vim.api.nvim_create_autocmd('InsertEnter', {
         callback = function()
-          require('mini.pairs').setup {}
           require('mini.splitjoin').setup {}
         end,
         once = true

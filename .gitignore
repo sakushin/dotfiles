@@ -25,3 +25,5 @@ packer_compiled.lua
 .local.env
 .override.env
 docker-compose.override.y*ml
+.aws-sam/
+local.mk

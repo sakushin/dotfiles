@@ -73,6 +73,14 @@ alias aws-ddb-scan='aws dynamodb scan --table-name $(aws-ddb-table-select)'
 aws-ddb-statement () {
   aws dynamodb execute-statement --statement "$(cat)"
 }
+aws-profile () {
+  NAME=$1
+  if [ -z $NAME ]; then
+    NAME=$(aws configure list-profiles | peco)
+  fi
+  export AWS_PROFILE=$NAME
+  export AWS_DEFAULT_PROFILE=$NAME
+}
 
 # android
 alias android-emulator-select='avdmanager list avd | grep Name: | awk '\''{print $2}'\'' | peco'
