@@ -1,9 +1,8 @@
 include "104.mayu"
 include ".mayu.general"
 
-key *RightControl = *RightControl
+key *RightControl = *PrintScreen
 mod windows -= RightControl
-mod control += RightControl
 
 key *PrintScreen = *LeftWindows
 mod windows += PrintScreen
