@@ -19,6 +19,8 @@
 .envrc
 .~*
 packer_compiled.lua
+.claude/
+CLAUDE.local.md
 
 # env
 .env
