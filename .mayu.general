@@ -42,6 +42,11 @@ mod mod2 = !!RightThumbs
 mod control += LeftOfA
 key *LeftOfA = *LeftControl
 
+# 109キーボード用配置調整
+if (KBD109)
+  mod windows += Hiragana
+  key *Hiragana = RightWindows
+endif
 # 104キーボード用配置調整
 if (KBD104)
   mod alt -= LeftAlt
