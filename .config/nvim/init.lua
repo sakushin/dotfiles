@@ -31,4 +31,5 @@ vim.keymap.set('n', '<C-w><C-k>', ':<C-u>res -2<CR>', {silent = true, noremap = 
 vim.keymap.set('n', '<C-w><C-l>', ':<C-u>vertical res +5<CR>', {silent = true, noremap = true})
 vim.keymap.set('n', '<C-w><C-h>', ':<C-u>vertical res -5<CR>', {silent = true, noremap = true})
 
-require('plugins')
+-- require('config.packer')
+require('config.lazy')
