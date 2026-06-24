@@ -46,6 +46,7 @@ key *LeftOfA = *LeftControl
 if (KBD109)
   mod windows += Hiragana
   key *Hiragana = RightWindows
+  key *BackSlash = *CloseBracket
 endif
 # 104キーボード用配置調整
 if (KBD104)
@@ -94,6 +95,7 @@ key M1-*N = Home
 key M1-*M = PageDown
 key M1-*Comma = PageUp
 key M1-*FullStop = End
+key M1-*RightOfP = *Right2OfP
 
 # 右親指
 key M2-*LeftOfA = *LeftOf1
