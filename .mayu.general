@@ -88,8 +88,6 @@ key M1-*U = *Delete
 key M1-*I = *Insert
 key M1-*O = *BackSpace
 key M1-*Q = *Esc
-key M1-*R = W-*R
-key M1-*Solidus = C-*F
 key M1-*Tab = A-*Tab
 key M1-*N = Home
 key M1-*M = PageDown
@@ -112,6 +110,7 @@ key M2-*L = *_9
 key M2-*Semicolon = *_0
 key M2-*RightOfSemicolon = *RightOf0
 key M2-*Right2OfSemicolon = *Right2Of0
+key M2-*BackSlash = *Right2Of0
 key M2-*Enter = *Right2Of0
 key M2-*Q = *F1
 key M2-*W = *F2
@@ -125,6 +124,12 @@ key M2-*O = *F9
 key M2-*P = *F10
 key M2-*RightOfP = *F11
 key M2-*Right2OfP = *F12
+if (!LINUX)
+  # media control
+  key M1-*W = Mute
+  key M1-*E = VolumeDown
+  key M1-*R = VolumeUp
+endif
 
 # 左右親指同時
 key M1-M2-*H = Home
