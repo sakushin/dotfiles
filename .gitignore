@@ -29,3 +29,6 @@ CLAUDE.local.md
 docker-compose.override.y*ml
 .aws-sam/
 local.mk
+
+# repo internal
+.config/nvim/lazy-lock.json
