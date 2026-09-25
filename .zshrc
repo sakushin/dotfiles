@@ -103,3 +103,5 @@ fi
 
 # local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+. "$HOME/.local/bin/env"
