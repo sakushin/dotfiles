@@ -95,7 +95,7 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 
 if type direnv > /dev/null; then
   eval "$(direnv hook zsh)"
@@ -103,5 +103,3 @@ fi
 
 # local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-. "$HOME/.local/bin/env"
